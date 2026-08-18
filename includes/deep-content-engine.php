@@ -1,8 +1,8 @@
 <?php
 /**
  * Convertiplyhq - Deep Content & Technical Specification Engine
- * Generates exhaustive, textbook-grade technical modules, keyword matrices,
- * milestone scorecards, and mathematical ROI models to guarantee 5,000+ words per page.
+ * Generates exhaustive, textbook-grade technical modules, authentic service-specific
+ * keyword matrices, milestone scorecards, and mathematical ROI models.
  */
 
 if (!defined('CONVERTIPLY_INIT')) {
@@ -66,56 +66,369 @@ function get_district_profiles(array $districts, string $cityName): array {
     return $profiles;
 }
 
-function get_deep_content_modules(string $serviceSlug, string $citySlug, string $serviceName, string $cityName, string $stateName): array {
-    return [
-        'keyword_matrix' => [
+function get_service_specific_keyword_matrix(string $serviceSlug, string $cityName, string $stateName, string $serviceName): array {
+    $s = strtolower($serviceSlug);
+
+    if (str_contains($s, 'cro') || str_contains($s, 'conversion')) {
+        return [
             [
-                'cluster' => 'Commercial Investigation Keywords',
-                'intent' => 'High Commercial Intent',
+                'cluster' => 'Commercial Investigation Queries',
+                'intent' => 'Landing Page & Funnel Diagnostic Search',
                 'queries' => [
-                    "best {$serviceName} agency in {$cityName}",
-                    "top {$serviceName} companies {$cityName}",
-                    "hire {$serviceName} consultant {$cityName}",
-                    "{$serviceName} services for enterprise {$cityName}"
+                    "website conversion rate optimization agency in {$cityName}",
+                    "landing page CRO teardown consultant {$cityName}",
+                    "eCommerce checkout drop-off audit {$cityName}",
+                    "B2B SaaS demo conversion optimization {$cityName}"
                 ],
                 'funnel_stage' => 'Middle of Funnel (MoFu)',
-                'conversion_rate' => '8.5% – 14.2%'
+                'conversion_rate' => '11.5% – 18.2%'
             ],
             [
-                'cluster' => 'Direct Transactional & Quote Keywords',
-                'intent' => 'Urgent Purchase / RFP Intent',
+                'cluster' => 'Direct Transactional & Proposal Queries',
+                'intent' => 'Urgent Audit RFP / Hiring Decision',
                 'queries' => [
-                    "{$serviceName} pricing {$cityName}",
-                    "cost of {$serviceName} in {$cityName}",
-                    "{$serviceName} retainer packages {$cityName}",
-                    "request proposal for {$serviceName} {$cityName}"
+                    "CRO audit pricing and packages {$cityName}",
+                    "cost of website conversion rate audit in {$cityName}",
+                    "hire conversion rate optimization consultant {$cityName}",
+                    "request proposal for CRO and heatmap audit {$cityName}"
                 ],
                 'funnel_stage' => 'Bottom of Funnel (BoFu)',
-                'conversion_rate' => '16.8% – 28.5%'
+                'conversion_rate' => '18.4% – 31.0%'
             ],
             [
-                'cluster' => 'Micro-District & Proximity Keywords',
-                'intent' => 'Hyper-Local Map Pack Intent',
+                'cluster' => 'Micro-District & Local Expertise Queries',
+                'intent' => 'Proximity CRO & Testing Specialist Search',
                 'queries' => [
-                    "{$serviceName} near me {$cityName}",
-                    "{$serviceName} firm in central {$cityName}",
-                    "local {$serviceName} experts {$cityName} {$stateName}"
+                    "CRO consultants near me {$cityName}",
+                    "landing page CRO specialists central {$cityName}",
+                    "local conversion rate optimization firm {$cityName} {$stateName}"
                 ],
                 'funnel_stage' => 'Local Proximity Search',
-                'conversion_rate' => '22.0% – 34.0%'
+                'conversion_rate' => '24.0% – 36.5%'
             ],
             [
-                'cluster' => 'Competitor & Alternative Comparison Queries',
-                'intent' => 'High-Value Decision Making',
+                'cluster' => 'Evaluation & Benchmark Comparisons',
+                'intent' => 'VWO / Hotjar / A/B Testing Tool Expertise',
                 'queries' => [
-                    "top rated {$serviceName} partners {$cityName}",
-                    "performance marketing vs traditional agency {$cityName}",
-                    "enterprise {$serviceName} case studies {$cityName}"
+                    "best CRO testing agencies in {$cityName}",
+                    "VWO and Optimizely A/B testing partner {$cityName}",
+                    "verified B2B landing page conversion lift case studies"
                 ],
                 'funnel_stage' => 'Evaluation & Shortlist',
-                'conversion_rate' => '12.0% – 19.5%'
+                'conversion_rate' => '14.0% – 22.5%'
             ]
+        ];
+    }
+
+    if (str_contains($s, 'lead-gen') || str_contains($s, 'lead-generation')) {
+        return [
+            [
+                'cluster' => 'Commercial B2B Pipeline Queries',
+                'intent' => 'Inbound & Outbound Pipeline Discovery',
+                'queries' => [
+                    "B2B lead generation company in {$cityName}",
+                    "inbound sales pipeline agency {$cityName}",
+                    "outbound SDR appointment setting firm {$cityName}",
+                    "enterprise lead generation services {$cityName}"
+                ],
+                'funnel_stage' => 'Middle of Funnel (MoFu)',
+                'conversion_rate' => '12.0% – 19.5%'
+            ],
+            [
+                'cluster' => 'Direct Transactional & Quote Queries',
+                'intent' => 'Cost-per-Lead & Retainer Search',
+                'queries' => [
+                    "B2B lead generation pricing {$cityName}",
+                    "cost per sales-qualified lead (SQL) agency {$cityName}",
+                    "lead generation retainer packages {$cityName}",
+                    "request proposal for B2B pipeline generation {$cityName}"
+                ],
+                'funnel_stage' => 'Bottom of Funnel (BoFu)',
+                'conversion_rate' => '19.5% – 33.0%'
+            ],
+            [
+                'cluster' => 'Micro-District & Proximity Queries',
+                'intent' => 'Local Corporate Lead Gen Specialists',
+                'queries' => [
+                    "B2B lead generation agency near me {$cityName}",
+                    "sales pipeline consultants in central {$cityName}",
+                    "local B2B appointment setters {$cityName} {$stateName}"
+                ],
+                'funnel_stage' => 'Local Proximity Search',
+                'conversion_rate' => '22.5% – 35.0%'
+            ],
+            [
+                'cluster' => 'Competitor & Channel Comparisons',
+                'intent' => 'Agency vs In-House SDR Evaluation',
+                'queries' => [
+                    "top rated B2B lead generation firms {$cityName}",
+                    "outsourced SDR vs internal sales team {$cityName}",
+                    "verified enterprise pipeline case studies {$cityName}"
+                ],
+                'funnel_stage' => 'Evaluation & Shortlist',
+                'conversion_rate' => '15.0% – 24.0%'
+            ]
+        ];
+    }
+
+    if (str_contains($s, 'technical-seo') || str_contains($s, 'seo-audit') || str_contains($s, 'enterprise-seo')) {
+        return [
+            [
+                'cluster' => 'Technical Crawl & Speed Queries',
+                'intent' => 'Core Web Vitals & Indexing Discovery',
+                'queries' => [
+                    "Core Web Vitals remediation services in {$cityName}",
+                    "technical SEO and schema graph consultant {$cityName}",
+                    "crawl budget and log file audit specialist {$cityName}",
+                    "site migration and indexing recovery agency {$cityName}"
+                ],
+                'funnel_stage' => 'Middle of Funnel (MoFu)',
+                'conversion_rate' => '10.5% – 17.5%'
+            ],
+            [
+                'cluster' => 'Forensic Audit & Retainer Queries',
+                'intent' => 'Urgent Technical Fix & RFP Intent',
+                'queries' => [
+                    "technical SEO audit cost in {$cityName}",
+                    "hire enterprise technical SEO architect {$cityName}",
+                    "120-point SEO diagnostic pricing {$cityName}",
+                    "request proposal for technical SEO audit {$cityName}"
+                ],
+                'funnel_stage' => 'Bottom of Funnel (BoFu)',
+                'conversion_rate' => '18.0% – 30.5%'
+            ],
+            [
+                'cluster' => 'Micro-District & Local Architecture Queries',
+                'intent' => 'Proximity Technical SEO Search',
+                'queries' => [
+                    "technical SEO consultants near me {$cityName}",
+                    "search architecture agency in central {$cityName}",
+                    "local technical search specialists {$cityName} {$stateName}"
+                ],
+                'funnel_stage' => 'Local Proximity Search',
+                'conversion_rate' => '21.0% – 33.0%'
+            ],
+            [
+                'cluster' => 'Engineering & Benchmark Comparisons',
+                'intent' => 'Enterprise Architecture Evaluation',
+                'queries' => [
+                    "best technical SEO agencies in {$cityName}",
+                    "Screaming Frog and server log SEO specialists {$cityName}",
+                    "enterprise organic traffic recovery case studies"
+                ],
+                'funnel_stage' => 'Evaluation & Shortlist',
+                'conversion_rate' => '13.5% – 21.0%'
+            ]
+        ];
+    }
+
+    if (str_contains($s, 'ai-seo') || str_contains($s, 'geo')) {
+        return [
+            [
+                'cluster' => 'Generative Engine Optimization Queries',
+                'intent' => 'LLM Search & AI Citations Discovery',
+                'queries' => [
+                    "Generative Engine Optimization (GEO) in {$cityName}",
+                    "how to rank in ChatGPT and Perplexity {$cityName}",
+                    "AI search engine optimization agency {$cityName}",
+                    "AI Overviews citation optimization consultant {$cityName}"
+                ],
+                'funnel_stage' => 'Middle of Funnel (MoFu)',
+                'conversion_rate' => '9.5% – 16.0%'
+            ],
+            [
+                'cluster' => 'Direct AI SEO Retainer Queries',
+                'intent' => 'Knowledge Graph & LLM Optimization RFP',
+                'queries' => [
+                    "AI SEO audit pricing in {$cityName}",
+                    "hire Generative Engine Optimization expert {$cityName}",
+                    "llms.txt and machine-readable data setup cost",
+                    "request proposal for AI search optimization {$cityName}"
+                ],
+                'funnel_stage' => 'Bottom of Funnel (BoFu)',
+                'conversion_rate' => '17.5% – 29.0%'
+            ],
+            [
+                'cluster' => 'Micro-District & Proximity Queries',
+                'intent' => 'Local AI Search Optimization',
+                'queries' => [
+                    "AI SEO consultants near me {$cityName}",
+                    "GEO marketing agency in central {$cityName}",
+                    "local AI search optimization specialists {$cityName}"
+                ],
+                'funnel_stage' => 'Local Proximity Search',
+                'conversion_rate' => '20.0% – 32.0%'
+            ],
+            [
+                'cluster' => 'AI Search vs Traditional SEO Comparisons',
+                'intent' => 'Future-Proof Search Strategy Evaluation',
+                'queries' => [
+                    "AI SEO vs traditional Google SEO agency {$cityName}",
+                    "top GEO optimization companies {$cityName}",
+                    "verified ChatGPT citation and brand mention case studies"
+                ],
+                'funnel_stage' => 'Evaluation & Shortlist',
+                'conversion_rate' => '12.5% – 20.0%'
+            ]
+        ];
+    }
+
+    if (str_contains($s, 'shopify') || str_contains($s, 'ecommerce')) {
+        return [
+            [
+                'cluster' => 'Shopify & eCommerce Theme Queries',
+                'intent' => 'Liquid 2.0 & Mobile Speed Discovery',
+                'queries' => [
+                    "Shopify 2.0 theme development company in {$cityName}",
+                    "custom eCommerce website design agency {$cityName}",
+                    "Shopify mobile speed and checkout optimization {$cityName}",
+                    "Shopify Plus enterprise developers {$cityName}"
+                ],
+                'funnel_stage' => 'Middle of Funnel (MoFu)',
+                'conversion_rate' => '11.0% – 17.5%'
+            ],
+            [
+                'cluster' => 'Direct eCommerce Development Quotes',
+                'intent' => 'Store Build & Migration RFP Intent',
+                'queries' => [
+                    "custom Shopify website cost in {$cityName}",
+                    "Shopify development packages and hourly rates {$cityName}",
+                    "hire dedicated Shopify developer in {$cityName}",
+                    "request proposal for custom eCommerce redesign {$cityName}"
+                ],
+                'funnel_stage' => 'Bottom of Funnel (BoFu)',
+                'conversion_rate' => '18.5% – 31.5%'
+            ],
+            [
+                'cluster' => 'Micro-District & Proximity Queries',
+                'intent' => 'Local eCommerce Development Specialists',
+                'queries' => [
+                    "Shopify development company near me {$cityName}",
+                    "eCommerce web designers in central {$cityName}",
+                    "local Shopify agency {$cityName} {$stateName}"
+                ],
+                'funnel_stage' => 'Local Proximity Search',
+                'conversion_rate' => '23.0% – 35.0%'
+            ],
+            [
+                'cluster' => 'Platform & Architecture Comparisons',
+                'intent' => 'Shopify vs WooCommerce vs Custom Headless',
+                'queries' => [
+                    "Shopify vs WooCommerce developers in {$cityName}",
+                    "best Shopify Plus certified partners {$cityName}",
+                    "high-converting D2C brand launch case studies"
+                ],
+                'funnel_stage' => 'Evaluation & Shortlist',
+                'conversion_rate' => '13.0% – 21.0%'
+            ]
+        ];
+    }
+
+    if (str_contains($s, 'google-ads') || str_contains($s, 'ppc') || str_contains($s, 'sem') || str_contains($s, 'youtube-ads')) {
+        return [
+            [
+                'cluster' => 'Paid Search & Performance SEM Queries',
+                'intent' => 'Target CPA & Quality Score Optimization',
+                'queries' => [
+                    "Google Ads management agency in {$cityName}",
+                    "PPC management company for B2B leads {$cityName}",
+                    "Performance Max and Google Shopping specialists {$cityName}",
+                    "YouTube video ads management firm {$cityName}"
+                ],
+                'funnel_stage' => 'Middle of Funnel (MoFu)',
+                'conversion_rate' => '11.0% – 18.0%'
+            ],
+            [
+                'cluster' => 'Direct PPC Management Quote Queries',
+                'intent' => 'Media Spend & Management Fee RFP',
+                'queries' => [
+                    "Google Ads management fees and retainers {$cityName}",
+                    "cost of PPC agency management in {$cityName}",
+                    "hire certified Google Ads partner {$cityName}",
+                    "request Google Ads audit proposal {$cityName}"
+                ],
+                'funnel_stage' => 'Bottom of Funnel (BoFu)',
+                'conversion_rate' => '18.0% – 32.0%'
+            ],
+            [
+                'cluster' => 'Micro-District & Local PPC Queries',
+                'intent' => 'Local Paid Advertising Specialists',
+                'queries' => [
+                    "Google Ads agency near me {$cityName}",
+                    "PPC advertising company in central {$cityName}",
+                    "local search engine marketing firm {$cityName} {$stateName}"
+                ],
+                'funnel_stage' => 'Local Proximity Search',
+                'conversion_rate' => '22.0% – 34.5%'
+            ],
+            [
+                'cluster' => 'Agency ROAS & Competitor Comparisons',
+                'intent' => 'In-House PPC vs Specialist Agency',
+                'queries' => [
+                    "top rated Google Ads agencies in {$cityName}",
+                    "performance marketing agency vs traditional media buyer",
+                    "verified Google Ads case studies with 4x+ ROAS"
+                ],
+                'funnel_stage' => 'Evaluation & Shortlist',
+                'conversion_rate' => '14.5% – 23.0%'
+            ]
+        ];
+    }
+
+    // Default High-Intent SEO / Digital Strategy Queries
+    return [
+        [
+            'cluster' => 'Commercial Investigation Keywords',
+            'intent' => 'High Commercial Intent Search',
+            'queries' => [
+                "top {$serviceName} companies in {$cityName}",
+                "best {$serviceName} agency for enterprise {$cityName}",
+                "hire {$serviceName} consultant {$cityName}",
+                "data-driven {$serviceName} firm {$cityName}"
+            ],
+            'funnel_stage' => 'Middle of Funnel (MoFu)',
+            'conversion_rate' => '9.5% – 15.5%'
         ],
+        [
+            'cluster' => 'Direct Transactional & Proposal Queries',
+            'intent' => 'Urgent Purchase & Retainer RFP Intent',
+            'queries' => [
+                "{$serviceName} pricing and retainers in {$cityName}",
+                "cost of {$serviceName} in {$cityName}",
+                "hire certified {$serviceName} experts {$cityName}",
+                "request proposal for {$serviceName} {$cityName}"
+            ],
+            'funnel_stage' => 'Bottom of Funnel (BoFu)',
+            'conversion_rate' => '17.5% – 29.5%'
+        ],
+        [
+            'cluster' => 'Micro-District & Proximity Queries',
+            'intent' => 'Hyper-Local Commercial Corridor Search',
+            'queries' => [
+                "{$serviceName} near me {$cityName}",
+                "{$serviceName} firm in central {$cityName}",
+                "local {$serviceName} specialists {$cityName} {$stateName}"
+            ],
+            'funnel_stage' => 'Local Proximity Search',
+            'conversion_rate' => '22.0% – 34.0%'
+        ],
+        [
+            'cluster' => 'Competitor & Alternative Comparison Queries',
+            'intent' => 'High-Value Strategic Decision Making',
+            'queries' => [
+                "top rated {$serviceName} partners in {$cityName}",
+                "performance marketing vs traditional advertising {$cityName}",
+                "verified client revenue case studies {$cityName}"
+            ],
+            'funnel_stage' => 'Evaluation & Shortlist',
+            'conversion_rate' => '12.5% – 20.5%'
+        ]
+    ];
+}
+
+function get_deep_content_modules(string $serviceSlug, string $citySlug, string $serviceName, string $cityName, string $stateName): array {
+    return [
+        'keyword_matrix' => get_service_specific_keyword_matrix($serviceSlug, $cityName, $stateName, $serviceName),
         'scorecard_milestones' => [
             [
                 'timeline' => 'Sprint 1 (Days 1–14)',

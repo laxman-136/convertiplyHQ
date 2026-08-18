@@ -290,29 +290,32 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
 
     <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
       <?php foreach ($deepModules['keyword_matrix'] as $cluster): ?>
-        <div class="card" style="padding: 24px;">
-          <div class="flex justify-between items-center" style="margin-bottom: 10px;">
-            <span class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: var(--radius-pill);">
+        <div class="card" style="padding: 24px 26px; background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+          <div class="flex justify-between items-center" style="margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--color-primary); background: var(--color-primary-light); padding: 4px 10px; border-radius: var(--radius-pill);">
               <?= e($cluster['funnel_stage']) ?>
             </span>
-            <span style="font-size: 12px; font-weight: 700; color: var(--color-success);">
-              Avg Conv: <?= e($cluster['conversion_rate']) ?>
+            <span style="font-size: 11.5px; font-weight: 700; color: var(--color-success); background: rgba(5, 150, 105, 0.08); padding: 4px 10px; border-radius: var(--radius-pill);">
+              Avg Conversion: <?= e($cluster['conversion_rate']) ?>
             </span>
           </div>
-          <h4 style="font-size: 17px; margin-bottom: 8px; color: var(--color-text);">
+          <h4 style="font-size: 17px; margin-bottom: 6px; color: var(--color-text); font-weight: 700;">
             <?= e($cluster['cluster']) ?>
           </h4>
-          <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 12px;">
-            <strong>Intent Profile:</strong> <?= e($cluster['intent']) ?>
+          <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 14px;">
+            <strong>Intent Focus:</strong> <?= e($cluster['intent']) ?>
           </p>
-          <ul style="list-style: none; font-size: 13px; color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
-            <?php foreach ($cluster['queries'] as $q): ?>
-              <li style="display: flex; gap: 6px; align-items: center;">
-                <span style="color: var(--color-primary); font-weight: bold;">›</span>
-                <code><?= e($q) ?></code>
-              </li>
-            <?php endforeach; ?>
-          </ul>
+          <div style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-text-light); text-transform: uppercase; margin-bottom: 8px;">High-Value Commercial Search Queries:</div>
+            <ul style="list-style: none; font-size: 12.5px; color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0;">
+              <?php foreach ($cluster['queries'] as $q): ?>
+                <li style="display: flex; gap: 8px; align-items: baseline;">
+                  <span style="color: var(--color-primary); font-size: 13px;">🔍</span>
+                  <span style="font-weight: 500; font-family: var(--font-mono, monospace); font-size: 12px; color: var(--color-text);"><?= e($q) ?></span>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
         </div>
       <?php endforeach; ?>
     </div>
