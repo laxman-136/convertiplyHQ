@@ -1,0 +1,28 @@
+{
+  "enabled": true,
+  "daily_limit": 10,
+  "start_date": "2026-08-17",
+  "priority_metros": [
+    "hyderabad",
+    "bengaluru",
+    "mumbai",
+    "delhi",
+    "pune",
+    "chennai",
+    "ahmadabad",
+    "kolkata",
+    "jaipur",
+    "lucknow",
+    "surat",
+    "chandigarh",
+    "visakhapatnam",
+    "patna",
+    "indore",
+    "nagpur",
+    "coimbatore",
+    "kochi",
+    "guwahati",
+    "bhopal"
+  ],
+  "manual_force_indexed": []
+}

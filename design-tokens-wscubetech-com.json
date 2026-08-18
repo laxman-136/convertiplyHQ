@@ -1,0 +1,1023 @@
+{
+  "url": "https://www.wscubetech.com/marketing",
+  "title": "WsCube Tech",
+  "description": "Learn the most in-demand skills and craft campaigns that captivate and convert the market.",
+  "scrapedAt": "2026-08-17T16:32:40.334Z",
+  "colors": {
+    "bg": "#ffffff",
+    "bgSecondary": "#fff5e6",
+    "text": "#212529",
+    "textSecondary": "#374151",
+    "primary": "#194cff",
+    "secondary": "#0d6efd",
+    "border": "#f3f4f6",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "role": "section",
+        "count": 1,
+        "area": 2647784,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#fff5e6",
+        "role": "button",
+        "count": 1,
+        "area": 80640,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#f3f4f6",
+        "role": "button",
+        "count": 1,
+        "area": 44393,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#194cff",
+        "role": "text-accent",
+        "count": 1,
+        "area": 32448,
+        "contrast": "light"
+      },
+      {
+        "hex": "#fdbd56",
+        "role": "button",
+        "count": 1,
+        "area": 6654,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#0d6efd",
+        "role": "text-accent",
+        "count": 1,
+        "area": 4300,
+        "contrast": "light"
+      },
+      {
+        "hex": "#fc9c03",
+        "role": "button",
+        "count": 1,
+        "area": 2321,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#2f2f27",
+        "role": "badge",
+        "count": 1,
+        "area": 1920,
+        "contrast": "light"
+      },
+      {
+        "hex": "#f65555",
+        "role": "badge",
+        "count": 1,
+        "area": 1702,
+        "contrast": "dark"
+      },
+      {
+        "hex": "#374151",
+        "role": "text-accent",
+        "count": 1,
+        "area": 1350,
+        "contrast": "light"
+      },
+      {
+        "hex": "#96acf6",
+        "role": "text-accent",
+        "count": 1,
+        "area": 600,
+        "contrast": "dark"
+      }
+    ]
+  },
+  "typography": {
+    "headingFont": {
+      "family": "Inter, sans-serif",
+      "cleanFamily": "Inter",
+      "weights": [
+        "600"
+      ],
+      "usedFor": "heading",
+      "fallback": "sans-serif"
+    },
+    "bodyFont": {
+      "family": "Inter, sans-serif",
+      "cleanFamily": "Inter",
+      "weights": [
+        "400"
+      ],
+      "usedFor": "body",
+      "fallback": "sans-serif"
+    },
+    "fontSizes": [
+      40,
+      32,
+      25,
+      22,
+      20,
+      18,
+      16,
+      15,
+      14,
+      12
+    ],
+    "lineHeights": [],
+    "details": [
+      {
+        "role": "H1",
+        "size": 40,
+        "weight": "600",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "font": "Inter"
+      },
+      {
+        "role": "H2",
+        "size": 32,
+        "weight": "700",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "font": "Inter"
+      },
+      {
+        "role": "H3",
+        "size": 20,
+        "weight": "600",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "font": "Inter"
+      },
+      {
+        "role": "Body",
+        "size": 18,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "font": "Inter"
+      }
+    ]
+  },
+  "spacing": {
+    "base": 12,
+    "common": [
+      {
+        "value": 12,
+        "count": 30,
+        "role": "element"
+      },
+      {
+        "value": 16,
+        "count": 17,
+        "role": "element"
+      },
+      {
+        "value": 8,
+        "count": 11,
+        "role": "element"
+      },
+      {
+        "value": 1,
+        "count": 6,
+        "role": "element"
+      },
+      {
+        "value": 20,
+        "count": 6,
+        "role": "element"
+      },
+      {
+        "value": 80,
+        "count": 5,
+        "role": "section"
+      },
+      {
+        "value": 2,
+        "count": 3,
+        "role": "element"
+      },
+      {
+        "value": 32,
+        "count": 3,
+        "role": "card"
+      }
+    ]
+  },
+  "borderRadius": [
+    {
+      "value": 8,
+      "count": 66,
+      "role": "button"
+    },
+    {
+      "value": 12,
+      "count": 41,
+      "role": "button"
+    },
+    {
+      "value": 50,
+      "count": 31,
+      "role": "card"
+    },
+    {
+      "value": 40,
+      "count": 16,
+      "role": "card"
+    },
+    {
+      "value": 16,
+      "count": 12,
+      "role": "card"
+    },
+    {
+      "value": 20,
+      "count": 5,
+      "role": "card"
+    }
+  ],
+  "shadows": [
+    {
+      "value": "rgb(255, 255, 255) 0px 2px 3px 0px inset",
+      "count": 15,
+      "level": "low"
+    },
+    {
+      "value": "rgb(17, 24, 39) 4px 4px 0px 0px",
+      "count": 7,
+      "level": "low"
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.09) 0px 4px 9px 0px",
+      "count": 1,
+      "level": "mid"
+    }
+  ],
+  "components": {
+    "primaryButton": {
+      "bg": "#194cff",
+      "border": "1px solid rgb(25, 76, 255)",
+      "borderRadius": 8,
+      "color": "#ffffff",
+      "fontSize": 14,
+      "fontWeight": "600",
+      "paddingH": 6,
+      "paddingV": 1,
+      "variant": "filled"
+    },
+    "secondaryButton": {
+      "bg": "#ffffff",
+      "border": "1px solid rgb(209, 213, 219)",
+      "borderRadius": 8,
+      "color": "#111827",
+      "fontSize": 14,
+      "fontWeight": "600",
+      "paddingH": 6,
+      "paddingV": 1,
+      "variant": "filled"
+    },
+    "buttons": [
+      {
+        "bg": "transparent",
+        "border": "1px solid rgba(107, 114, 128, 0.4)",
+        "borderRadius": 8,
+        "color": "#111827",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "paddingH": 15,
+        "paddingV": 8,
+        "variant": "outline"
+      },
+      {
+        "bg": "transparent",
+        "border": "",
+        "borderRadius": 0,
+        "color": "#0d6efd",
+        "fontSize": 16,
+        "fontWeight": "400",
+        "paddingH": 0,
+        "paddingV": 0,
+        "variant": "ghost"
+      },
+      {
+        "bg": "transparent",
+        "border": "",
+        "borderRadius": 6,
+        "color": "#212529",
+        "fontSize": 16,
+        "fontWeight": "400",
+        "paddingH": 0,
+        "paddingV": 0,
+        "variant": "ghost"
+      },
+      {
+        "bg": "#194cff",
+        "border": "1px solid rgb(25, 76, 255)",
+        "borderRadius": 8,
+        "color": "#ffffff",
+        "fontSize": 14,
+        "fontWeight": "600",
+        "paddingH": 6,
+        "paddingV": 1,
+        "variant": "filled"
+      },
+      {
+        "bg": "#ffffff",
+        "border": "1px solid rgb(209, 213, 219)",
+        "borderRadius": 8,
+        "color": "#111827",
+        "fontSize": 14,
+        "fontWeight": "600",
+        "paddingH": 6,
+        "paddingV": 1,
+        "variant": "filled"
+      },
+      {
+        "bg": "transparent",
+        "border": "",
+        "borderRadius": 0,
+        "color": "#ffffff",
+        "fontSize": 20,
+        "fontWeight": "600",
+        "paddingH": 0,
+        "paddingV": 0,
+        "variant": "ghost"
+      }
+    ],
+    "card": {
+      "bg": "#000000",
+      "borderRadius": 12,
+      "padding": 12,
+      "shadow": "none"
+    }
+  },
+  "fontFaces": [
+    {
+      "family": "slick",
+      "src": "https://www.wscubetech.com/_next/static/media/slick.653a4cbb.woff",
+      "style": "normal",
+      "weight": "400"
+    }
+  ],
+  "cssCustomProperties": [
+    {
+      "name": "--bs-breakpoint-xs",
+      "value": "0",
+      "category": "spacing"
+    },
+    {
+      "name": "--bs-breakpoint-sm",
+      "value": "576px",
+      "category": "spacing"
+    },
+    {
+      "name": "--bs-breakpoint-md",
+      "value": "768px",
+      "category": "spacing"
+    },
+    {
+      "name": "--bs-breakpoint-lg",
+      "value": "992px",
+      "category": "spacing"
+    },
+    {
+      "name": "--bs-breakpoint-xl",
+      "value": "1200px",
+      "category": "spacing"
+    },
+    {
+      "name": "--bs-breakpoint-xxl",
+      "value": "1400px",
+      "category": "spacing"
+    },
+    {
+      "name": "--label-color-1",
+      "value": "#111827",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-2",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-3",
+      "value": "#194cff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-4",
+      "value": "#1e88e5",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-5",
+      "value": "#ffffd6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-6",
+      "value": "#ffedea",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-7",
+      "value": "#4b5563",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-8",
+      "value": "#e3e0f3",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-9",
+      "value": "#dbf5f0",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-10",
+      "value": "#6b7280",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-11",
+      "value": "#f65555",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-12",
+      "value": "#e5ffff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-13",
+      "value": "#ffedfd",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-14",
+      "value": "#fef9f5",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-15",
+      "value": "#667085",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-16",
+      "value": "#101828",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-17",
+      "value": "#1f2937",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-18",
+      "value": "#f8db46",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-19",
+      "value": "#f5f7ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-20",
+      "value": "#18181b",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-21",
+      "value": "#faf3e4",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-22",
+      "value": "#ffffff33",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-23",
+      "value": "#0c1e5e",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-24",
+      "value": "#fc9c03",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-25",
+      "value": "#fdb035",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-27",
+      "value": "#ff9b26",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-28",
+      "value": "#9ca3af",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-29",
+      "value": "#f3f4f6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-30",
+      "value": "#a7b9ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-31",
+      "value": "#fff5e6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-32",
+      "value": "#fdbd56",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-34",
+      "value": "#374151",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-35",
+      "value": "#4c67d4",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-26",
+      "value": "#282a3a",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-33",
+      "value": "#eff3f5",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-36",
+      "value": "#ececec",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-37",
+      "value": "#404252",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-38",
+      "value": "#2d0095",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-39",
+      "value": "#403e5f",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-40",
+      "value": "#110e37",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-41",
+      "value": "#243985",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-42",
+      "value": "#e5e7eb",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-43",
+      "value": "#fed18b",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-44",
+      "value": "#d9d9d9",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-45",
+      "value": "#d1d5db",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-46",
+      "value": "#000",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-47",
+      "value": "#1745e8",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-48",
+      "value": "#344054",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-49",
+      "value": "#ffea00",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-50",
+      "value": "#484848",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-51",
+      "value": "#5d60ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-52",
+      "value": "#ffd257",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-53",
+      "value": "#1e7fed",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-54",
+      "value": "#747474",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-55",
+      "value": "#f1f1f1",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-56",
+      "value": "#e5e5e5",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-57",
+      "value": "#ff2600",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-58",
+      "value": "#e8edff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-59",
+      "value": "#4770ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-60",
+      "value": "#b9daf7",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-61",
+      "value": "#b8c8ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-62",
+      "value": "#b2b9eb",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-63",
+      "value": "#fee0b1",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-64",
+      "value": "#7692ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-65",
+      "value": "#86a8ff",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-66",
+      "value": "#202020",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-67",
+      "value": "#aaacb4",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-68",
+      "value": "#f4f4f4",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-69",
+      "value": "#3b82f6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-70",
+      "value": "#3b82f6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-71",
+      "value": "#3b82f6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-72",
+      "value": "#3b82f6",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-73",
+      "value": "#2b3",
+      "category": "color"
+    },
+    {
+      "name": "--label-color-purple",
+      "value": "#28003f",
+      "category": "color"
+    },
+    {
+      "name": "--common-hover-shadow",
+      "value": "4px 4px 0px 0px #000",
+      "category": "color"
+    },
+    {
+      "name": "--common-hover-shadow-2",
+      "value": "4px 4px 0px 0px #111827",
+      "category": "color"
+    },
+    {
+      "name": "--common-hover-shadow-3",
+      "value": "8px 8px 0px 0px #111827",
+      "category": "color"
+    },
+    {
+      "name": "--common-hover-shadow-4",
+      "value": "2px 2px 0px 0px #020304",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-light",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-dark",
+      "value": "#121212",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-info",
+      "value": "#3498db",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-success",
+      "value": "#07bc0c",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-warning",
+      "value": "#f1c40f",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-error",
+      "value": "#e74c3c",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-transparent",
+      "value": "hsla(0,0%,100%,.7)",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-icon-color-info",
+      "value": "var(--toastify-color-info)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-icon-color-success",
+      "value": "var(--toastify-color-success)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-icon-color-warning",
+      "value": "var(--toastify-color-warning)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-icon-color-error",
+      "value": "var(--toastify-color-error)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-toast-width",
+      "value": "320px",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-toast-offset",
+      "value": "16px",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-toast-top",
+      "value": "max(var(--toastify-toast-offset),env(safe-area-inset-top))",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-toast-right",
+      "value": "max(var(--toastify-toast-offset),env(safe-area-inset-right))",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-toast-left",
+      "value": "max(var(--toastify-toast-offset),env(safe-area-inset-left))",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-toast-bottom",
+      "value": "max(var(--toastify-toast-offset),env(safe-area-inset-bottom))",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-toast-background",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-toast-min-height",
+      "value": "64px",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-toast-max-height",
+      "value": "800px",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-toast-bd-radius",
+      "value": "6px",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-font-family",
+      "value": "sans-serif",
+      "category": "typography"
+    },
+    {
+      "name": "--toastify-z-index",
+      "value": "9999",
+      "category": "spacing"
+    },
+    {
+      "name": "--toastify-text-color-light",
+      "value": "#757575",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-text-color-dark",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-text-color-info",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-text-color-success",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-text-color-warning",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-text-color-error",
+      "value": "#fff",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-spinner-color",
+      "value": "#616161",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-spinner-color-empty-area",
+      "value": "#e0e0e0",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-progress-light",
+      "value": "linear-gradient(90deg,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55)",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-progress-dark",
+      "value": "#bb86fc",
+      "category": "color"
+    },
+    {
+      "name": "--toastify-color-progress-info",
+      "value": "var(--toastify-color-info)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-color-progress-success",
+      "value": "var(--toastify-color-success)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-color-progress-warning",
+      "value": "var(--toastify-color-warning)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-color-progress-error",
+      "value": "var(--toastify-color-error)",
+      "category": "other"
+    },
+    {
+      "name": "--toastify-color-progress-bgo",
+      "value": "0.2",
+      "category": "spacing"
+    },
+    {
+      "name": "--apollo-sidebar-button-size",
+      "value": "40px",
+      "category": "spacing"
+    },
+    {
+      "name": "--apollo-sidebar-icon-size",
+      "value": "20px",
+      "category": "spacing"
+    },
+    {
+      "name": "--apollo-sidebar-hover-bg",
+      "value": "#0000000a",
+      "category": "color"
+    },
+    {
+      "name": "--apollo-sidebar-focus-bg",
+      "value": "#00000014",
+      "category": "color"
+    },
+    {
+      "name": "--apollo-sidebar-hover-opacity",
+      "value": "0.8",
+      "category": "spacing"
+    },
+    {
+      "name": "--apollo-sidebar-transition",
+      "value": "all 0.2s ease",
+      "category": "other"
+    },
+    {
+      "name": "--apollo-sidebar-z-input",
+      "value": "2",
+      "category": "spacing"
+    },
+    {
+      "name": "--apollo-sidebar-z-icon",
+      "value": "1",
+      "category": "spacing"
+    }
+  ],
+  "tags": [
+    "light",
+    "rounded",
+    "colorful",
+    "sans-serif"
+  ],
+  "mood": "Friendly, approachable design with rounded shapes and generous whitespace.",
+  "heroHeadline": "Get Job-ready for Digital Marketing Roles",
+  "heroSubtitle": "",
+  "isJapanese": false
+}

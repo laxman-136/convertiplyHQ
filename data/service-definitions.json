@@ -1,0 +1,199 @@
+{
+  "seo": {
+    "title": "Search Engine Optimization (SEO)",
+    "what_is": "Search Engine Optimization (SEO) is the discipline of optimizing a website's technical architecture, content relevance, and backlink authority to rank organically on search engine results pages (SERPs). Unlike paid ads that stop generating traffic the moment budget runs out, SEO builds sustainable, compounding inbound pipeline from users actively searching for solutions.",
+    "ranking_factors": [
+      "Sub-second Core Web Vitals (LCP < 1.2s, INP < 100ms, CLS < 0.05)",
+      "Topical authority and comprehensive keyword cluster coverage",
+      "High-authority editorial backlinks from verified DR 65+ domains",
+      "Clean crawl architecture, semantic HTML5, and error-free schema graphs",
+      "Search intent matching with low bounce and high engagement dwell time",
+      "Generative Engine Optimization (GEO) structured for AI Overviews and LLMs"
+    ],
+    "stats": [
+      { "value": "68%", "label": "Of all trackable website traffic originates from organic and paid search" },
+      { "value": "5.3x", "label": "Higher ROI from organic search compared to traditional outbound marketing" },
+      { "value": "0.63%", "label": "Of Google searchers click on results from the second page — page 1 is mandatory" },
+      { "value": "14.6%", "label": "Average close rate for SEO leads, compared to 1.7% for outbound leads" }
+    ],
+    "benefits_column_1": [
+      "Compound, recurring organic lead generation with zero per-click ad fees",
+      "Dominates high-intent 'bottom-of-funnel' commercial queries",
+      "Establishes undisputed brand authority over competitors",
+      "Builds long-term digital enterprise valuation and market share"
+    ],
+    "benefits_column_2": [
+      "Attracts ready-to-buy decision-makers during active research",
+      "Improves overall website speed, UX, and mobile conversion rates",
+      "Generates continuous local map pack footfall and phone inquiries",
+      "Protects market position against aggressive competitor advertising"
+    ],
+    "how_it_drives_results": "SEO drives measurable enterprise pipeline by placing your solution in front of buyers at the precise moment they have high purchasing intent. When a buyer searches for a commercial solution, ranking in the top 3 positions captures over 55% of total click volume. By converting those high-intent clicks through sub-second, conversion-engineered landing pages, SEO lowers your blended customer acquisition cost (CAC) while scaling qualified sales pipeline.",
+    "practical_tips": [
+      "Prioritize commercial and transactional keywords with clear buyer intent over vanity search volume.",
+      "Fix technical crawl bottlenecks, redirect chains, and broken schema before investing in link building.",
+      "Publish original data, industry benchmarks, and case studies that naturally earn Tier-1 editorial citations.",
+      "Structure every article with clear answer capsules and bulleted summaries for Google AI Overviews."
+    ],
+    "faq_bank": [
+      {
+        "question": "How long does it take to see measurable SEO results in {city}?",
+        "answer": "For local searches in {city}, low-to-medium competition terms typically show first-page traction in 45 to 90 days. For highly competitive commercial terms, significant organic pipeline inflection occurs within 90 to 180 days with consistent content velocity and authoritative backlink acquisition."
+      },
+      {
+        "question": "How is SEO different for businesses in {city} compared to national campaigns?",
+        "answer": "SEO in {city} requires localized proximity optimization, Google Business Profile management, local citation syndication, and geo-targeted neighborhood landing pages that cater to {city}'s specific industry hubs."
+      },
+      {
+        "question": "Do you guarantee #1 rankings on Google for {city} queries?",
+        "answer": "No ethical agency guarantees specific rank positions because Google's algorithm updates continuously. However, we guarantee strict adherence to 100% white-hat engineering standards, verifiable Tier-1 links, and milestone-tied performance KPIs."
+      },
+      {
+        "question": "What deliverables do we receive each month for our {city} campaign?",
+        "answer": "You receive Core Web Vitals remediation, newly optimized content clusters, verifiable editorial backlink reports with live URLs, local Google Business management, and live GA4 revenue attribution dashboards."
+      },
+      {
+        "question": "How do you optimize our {city} site for AI search engines like ChatGPT and Perplexity?",
+        "answer": "We deploy Generative Engine Optimization (GEO): structured schema graphs, machine-readable documentation (`llms.txt`), and concise entity citation blocks that AI models prioritize when generating answers."
+      },
+      {
+        "question": "Will our {city} business need to redesign its entire website for SEO?",
+        "answer": "Not necessarily. In most cases, we optimize your existing website's HTML, metadata, schema markup, and speed without disrupting current design, unless the underlying architecture has severe crawl blockers."
+      },
+      {
+        "question": "How do you track whether SEO is generating actual revenue in {city}?",
+        "answer": "We integrate server-side GA4 events with your CRM (HubSpot, Salesforce, Zoho). This tracks organic leads from first touch to closed-won revenue, reporting exact cost per SQL and pipeline ROI."
+      },
+      {
+        "question": "Why should we choose Convertiplyhq over a general {city} marketing agency?",
+        "answer": "Convertiplyhq operates on an engineering-first growth model. We eliminate fluff retainers and focus 100% on technical page performance, programmatic architecture, and verified revenue attribution."
+      }
+    ]
+  },
+  "google-ads-ppc": {
+    "title": "Google Ads & PPC Management",
+    "what_is": "Google Ads and Pay-Per-Click (PPC) management is the science of capturing immediate, high-intent buyer traffic across Google Search, Performance Max, YouTube, and Display. By bidding on high-commercial keywords and optimizing quality scores, PPC delivers immediate, scalable customer acquisition with predictable return on ad spend (ROAS).",
+    "ranking_factors": [
+      "High Quality Scores (8-10/10) via tight ad copy and landing page relevance",
+      "Aggressive negative keyword hygiene to block wasted search spend",
+      "Enhanced conversion tracking with server-side offline CRM data sync",
+      "Performance Max (PMax) audience signal sculpting and brand exclusion lists",
+      "Granular Single-Theme Ad Groups (STAGs) for maximal click-through rates",
+      "Sub-second loading landing pages with dedicated message-matched offers"
+    ],
+    "stats": [
+      { "value": "4.8x", "label": "Average blended ROAS achieved across our managed paid search accounts" },
+      { "value": "38%", "label": "Average reduction in cost-per-acquisition (CPA) within the first 60 days" },
+      { "value": "65%", "label": "Of all high-intent commercial clicks are captured by top-of-page paid search ads" },
+      { "value": "< 5 Days", "label": "Time required from campaign build to generating live qualified inbound pipeline" }
+    ],
+    "benefits_column_1": [
+      "Instant market visibility and inbound lead generation within 48-72 hours",
+      "Total control over daily ad spend, cost per click, and target CPA",
+      "Intercepts high-value buyers actively evaluating competitor solutions",
+      "Hyper-targeted geographic targeting down to specific zip codes and commercial hubs"
+    ],
+    "benefits_column_2": [
+      "Granular keyword-level conversion attribution and transparent revenue tracking",
+      "Flexible budget scaling based on real-time pipeline capacity",
+      "Continuous multivariate creative and landing page testing",
+      "Comprehensive multi-platform retargeting across YouTube and Display"
+    ],
+    "how_it_drives_results": "Paid Search captures buyers at the exact moment of transactional intent. By pairing tightly sculpted keyword themes with sub-second bespoke landing pages, we maximize conversion rates while driving down click costs. Every rupee of ad spend is tied to closed pipeline, allowing you to scale budgets with mathematical certainty.",
+    "practical_tips": [
+      "Never rely solely on broad match without extensive multi-tiered negative keyword lists.",
+      "Feed closed-won CRM revenue back into Google Ads via Offline Conversion Imports to train smart bidding.",
+      "Build dedicated, fast landing pages instead of sending paid ad traffic to your generic homepage.",
+      "Implement brand exclusion lists on Performance Max campaigns to prevent cannibalization."
+    ],
+    "faq_bank": [
+      {
+        "question": "How quickly can our {city} business start getting leads from Google Ads?",
+        "answer": "Campaigns go live within 5 business days after setup and conversion tracking QA. Qualified leads and inquiries typically start flowing within the first 24 to 48 hours of ad activation."
+      },
+      {
+        "question": "What is the recommended minimum Google Ads budget for {city}?",
+        "answer": "For most commercial B2B and high-ticket service categories in {city}, we recommend an initial ad spend of ₹30,000 to ₹1,00,000/month to gather statistical data and optimize bidding algorithms."
+      },
+      {
+        "question": "How do you prevent competitor click fraud and wasted spend in {city}?",
+        "answer": "We implement automated click-fraud detection, filter out low-intent mobile app display networks, exclude irrelevant search terms daily, and apply geo-fencing strictly to your service territory."
+      },
+      {
+        "question": "Do you create the landing pages for our Google Ads campaigns in {city}?",
+        "answer": "Yes. Every campaign includes custom, sub-second landing pages designed with message matching and conversion rate optimization principles to maximize visitor-to-lead rates."
+      },
+      {
+        "question": "Who owns the Google Ads account and campaign data?",
+        "answer": "You own 100% of your Google Ads account, billing profile, tracking pixels, and creative assets. We manage the account via agency partner access."
+      },
+      {
+        "question": "How do you measure ROAS and lead quality from {city} campaigns?",
+        "answer": "We configure GA4 server-side conversion tracking and synchronize offline CRM sales milestones, measuring cost per qualified SQL and actual revenue generated."
+      },
+      {
+        "question": "What is the difference between Search ads and Performance Max for {city} brands?",
+        "answer": "Search campaigns capture exact high-intent keyword searches, while Performance Max expands across YouTube, Gmail, Maps, and Display using AI audience signals to scale total conversions."
+      },
+      {
+        "question": "Can we adjust our ad spend month-to-month based on business seasonality?",
+        "answer": "Yes. You have complete flexibility to scale up during peak seasons or adjust budgets during slower periods with zero penalty."
+      }
+    ]
+  },
+  "default": {
+    "title": "Digital Marketing Services",
+    "what_is": "Performance digital marketing is the integration of high-intent search acquisition, data-driven paid advertising, and conversion rate optimization to scale qualified inbound pipeline and recurring revenue.",
+    "ranking_factors": [
+      "Sub-second page speeds and frictionless mobile user experiences",
+      "High-intent keyword and audience targeting with minimal waste",
+      "Server-side first-party analytics and closed-loop revenue attribution",
+      "Continuous A/B testing of messaging, offers, and visual assets",
+      "Multi-channel retargeting and automated lead nurturing funnels",
+      "Structured data schema for search engine and AI model comprehension"
+    ],
+    "stats": [
+      { "value": "4.8x", "label": "Average blended ROAS delivered across all client campaigns" },
+      { "value": "+320%", "label": "Average organic search pipeline lift over 180 days" },
+      { "value": "140+", "label": "Successful growth sprints completed across India" },
+      { "value": "98.4%", "label": "Client retention rate based on transparent performance" }
+    ],
+    "benefits_column_1": [
+      "Predictable, scalable customer acquisition with transparent ROI",
+      "Full ownership of all accounts, data, and creative assets",
+      "Sub-second website architecture scoring 95+ on Core Web Vitals",
+      "Bi-directional CRM integration and pipeline tracking"
+    ],
+    "benefits_column_2": [
+      "Eliminates wasted ad budget through aggressive negative lists",
+      "Multi-channel growth loops across Search, Social, and Retention",
+      "Agile 90-day execution sprints with dedicated senior squad",
+      "Zero long-term lock-in contracts — performance earns partnership"
+    ],
+    "how_it_drives_results": "We connect marketing execution directly to enterprise EBITDA and qualified pipeline. By eliminating agency bloat and aligning every campaign with verified revenue milestones, we ensure every rupee invested delivers measurable growth.",
+    "practical_tips": [
+      "Always align marketing KPIs with closed-won sales revenue, not vanity impressions.",
+      "Ensure tracking telemetry and server-side conversion APIs are verified before scaling spend.",
+      "Test high-converting landing page variants with clear single-action CTAs.",
+      "Maintain active negative keyword and audience exclusion lists to eliminate waste."
+    ],
+    "faq_bank": [
+      {
+        "question": "How is this service customized for the {city} market?",
+        "answer": "We tailor all audience targeting, localized search terms, micro-zone targeting, and competitive positioning specifically to the commercial dynamics of {city}."
+      },
+      {
+        "question": "What is the typical onboarding timeline for new clients in {city}?",
+        "answer": "Our diagnostic audit and technical setup take 5 to 7 business days, after which execution sprints go live immediately."
+      },
+      {
+        "question": "Do you offer contract flexibility or lock-in retainers?",
+        "answer": "We work in initial 90-day performance sprints followed by flexible month-to-month retainers. We believe results should earn your business every month."
+      },
+      {
+        "question": "How do we receive progress reports and performance data?",
+        "answer": "You get 24/7 access to a live real-time GA4/BI dashboard, bi-weekly strategic sprint reviews, and direct communication with your dedicated account lead."
+      }
+    ]
+  }
+}

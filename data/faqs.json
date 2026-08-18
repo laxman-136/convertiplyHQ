@@ -1,0 +1,180 @@
+{
+  "serviceFaqs": {
+    "digital-marketing-strategy": [
+      {
+        "q": "What is included in a Digital Marketing Strategy roadmap for our {City} business?",
+        "a": "Our strategy blueprint includes full target persona ICP profiling, channel budget allocation, unit economics and CAC:LTV modeling, tech stack and attribution architecture, and an agile 90-day execution backlog prioritized by ICE score."
+      },
+      {
+        "q": "How long does it take to develop and deliver the strategy roadmap?",
+        "a": "Our standard Strategy Blueprint is completed within 2 to 3 weeks, including stakeholder discovery interviews, competitive teardowns, and an executive leadership presentation."
+      }
+    ],
+    "franchise-digital-marketing": [
+      {
+        "q": "How do you manage marketing for multiple franchise locations in {City} without internal cannibalization?",
+        "a": "We deploy centralized brand governance with decentralized geo-fencing. Every franchise unit gets its own programmatic local landing page and geo-targeted ads, with negative keyword exclusion zones so neighboring franchisees never bid against each other."
+      },
+      {
+        "q": "How are leads distributed to individual franchise operators?",
+        "a": "We integrate automated CRM lead routing based on user geography, zip code, and nearest branch proximity, alerting the local franchise manager instantly via SMS and WhatsApp."
+      }
+    ],
+    "enterprise-digital-marketing": [
+      {
+        "q": "How does Convertiplyhq support multi-stakeholder enterprise sales cycles?",
+        "a": "We deploy targeted Account-Based Marketing (ABM) campaigns across LinkedIn and programmatic display, synchronized directly with your Salesforce/HubSpot CRM to accelerate enterprise deals and track multi-touch revenue attribution."
+      },
+      {
+        "q": "Are your systems compliant with enterprise data security and privacy standards?",
+        "a": "Yes. We operate with strict data privacy protocols, sanitized telemetry, and server-side tracking containers compliant with GDPR, DPDP Act, and enterprise security frameworks."
+      }
+    ],
+    "local-seo": [
+      {
+        "q": "How do you rank our {City} business in the Google Map 3-Pack?",
+        "a": "We optimize your Google Business Profile categories, syndicate consistent NAP citations across 50+ local directories, build geo-targeted neighborhood landing pages (focusing on areas like {District}), and engineer automated review generation loops."
+      },
+      {
+        "q": "How long does it take to see local search ranking improvements in {City}?",
+        "a": "Most local businesses in {City} see noticeable map pack rank increases within 45 to 60 days as citation authority indexes and local reviews compound."
+      }
+    ],
+    "technical-seo": [
+      {
+        "q": "How do you fix Core Web Vitals issues on our {City} website?",
+        "a": "We optimize code payloads, eliminate render-blocking CSS/JavaScript, configure modern image formats, and reduce layout shifts (CLS < 0.05) to score 95+ on Google PageSpeed Insights."
+      },
+      {
+        "q": "Can you audit and optimize modern JavaScript frameworks like Next.js, React, or Vue?",
+        "a": "Yes. We perform deep JS hydration and server-side rendering (SSR) audits to ensure Googlebot renders and indexes all dynamic content without crawl budget waste."
+      }
+    ],
+    "ai-seo-services": [
+      {
+        "q": "How do AI SEO and Generative Engine Optimization (GEO) work?",
+        "a": "We structure your site's entity knowledge graph, deploy machine-readable documentation (`llms.txt`), and optimize direct-answer citation blocks so AI engines like ChatGPT, Perplexity, and Google AI Overviews cite your {City} brand as the authoritative source."
+      },
+      {
+        "q": "Why is AI search visibility essential in 2026?",
+        "a": "Over 35% of commercial research queries now generate zero-click AI summaries. Without entity authority and GEO structuring, your brand is omitted from LLM recommendations."
+      }
+    ],
+    "franchise-seo": [
+      {
+        "q": "How do you handle SEO across 20+ franchise locations?",
+        "a": "We build scalable, programmatic location hubs with unique localized content, manage bulk Google Business Profile API updates, and build localized backlink clusters for each individual city and branch."
+      }
+    ],
+    "enterprise-seo": [
+      {
+        "q": "How do you scale organic traffic on 50,000+ page enterprise domains?",
+        "a": "We build programmatic topical architecture, optimize internal PageRank distribution algorithms, deploy edge SEO redirects, and secure Tier-1 digital PR editorial backlinks from DR 75+ media publications."
+      }
+    ],
+    "seo-audits": [
+      {
+        "q": "What is covered in Convertiplyhq's 120-Point SEO Audit?",
+        "a": "We dissect technical health, server logs, crawl budget, indexation traps, backlink toxicity, on-page content relevance, Core Web Vitals, and competitor ranking gaps into a prioritized Jira-ready roadmap."
+      }
+    ],
+    "cro-audits": [
+      {
+        "q": "How does a CRO Audit double website conversion rates?",
+        "a": "By analyzing user heatmaps, session recordings, and checkout drop-offs, we eliminate cognitive friction and redesign landing page wireframes to drastically increase form fills and checkouts."
+      }
+    ],
+    "search-engine-marketing-sem": [
+      {
+        "q": "How do you optimize SEM campaigns across Google and Bing for {City}?",
+        "a": "We use Single-Theme Ad Groups (STAGs), strict negative keyword hygiene, and dedicated sub-second landing pages with exact message matching to maintain high Quality Scores and low CPCs."
+      }
+    ],
+    "google-ads-management": [
+      {
+        "q": "How do you prevent wasted ad spend on Google Ads in {City}?",
+        "a": "We audit search query reports daily to exclude irrelevant queries, deploy brand exclusion lists on Performance Max (PMax), and sync offline CRM revenue to bid aggressively only on high-value buyers."
+      }
+    ],
+    "youtube-ads-management": [
+      {
+        "q": "What video creative is required for profitable YouTube Ads?",
+        "a": "We script and test direct-response video hooks (In-Stream and Shorts) that grab attention in the first 3 seconds, explain the value proposition clearly, and guide viewers to high-converting landing pages."
+      }
+    ],
+    "programmatic-advertising": [
+      {
+        "q": "What platforms and ad inventory do you access for programmatic advertising?",
+        "a": "We execute via premier DSPs (DV360, The Trade Desk) accessing premium global publishers, connected TV (CTV), digital audio, and high-impact rich media units with strict brand safety verification."
+      }
+    ],
+    "lead-generation-services": [
+      {
+        "q": "How do you guarantee lead quality rather than spam submissions?",
+        "a": "We implement multi-step qualification forms with interactive pricing calculators and OTP/phone verification, ensuring only decision-makers with real budgets reach your sales calendar."
+      }
+    ],
+    "franchise-ppc": [
+      {
+        "q": "Can individual franchise branches fund their own local PPC campaigns?",
+        "a": "Yes. Our franchise PPC system allows centralized franchisor oversight while enabling branch managers to co-fund or adjust local ad budgets for their territory."
+      }
+    ],
+    "enterprise-ppc": [
+      {
+        "q": "How do you manage high-budget enterprise PPC accounts?",
+        "a": "We deploy automated Python budget pacing scripts, BigQuery data pipelines, continuous multivariate landing page tests, and a dedicated senior media buyer squad."
+      }
+    ],
+    "ecommerce-seo": [
+      {
+        "q": "How do you solve duplicate content on large e-commerce catalog filters?",
+        "a": "We implement strict canonical tag rules, robots meta directives, and parameter handling in Google Search Console to keep faceted filters from diluting product PageRank."
+      }
+    ],
+    "ecommerce-ppc": [
+      {
+        "q": "How do you scale e-commerce Google Shopping and PMax campaigns?",
+        "a": "We optimize product feed titles and custom labels, segment high-margin vs low-margin SKUs, and pair Google Shopping with Meta Dynamic Product Ads (DPA) to maximize blended MER."
+      }
+    ],
+    "ecommerce-optimization": [
+      {
+        "q": "How much can post-purchase 1-click upsells increase Average Order Value (AOV)?",
+        "a": "Our e-commerce optimization workflows consistently lift store AOV by 15% to 28% through frictionless post-purchase offers and cart cross-sells."
+      }
+    ],
+    "shopify-seo": [
+      {
+        "q": "How do you overcome Shopify's native URL and collection structure limitations?",
+        "a": "We modify theme Liquid templates to force standard canonical product paths, strip out dormant app scripts to speed up load times, and implement rich JSON-LD schema."
+      }
+    ],
+    "shopify-web-design": [
+      {
+        "q": "Why choose a custom Shopify 2.0 theme over a generic marketplace template?",
+        "a": "Generic themes carry severe code bloat and low PageSpeed scores. Our bespoke Shopify 2.0 builds are lightweight, score 90+ on mobile speed tests, and are engineered strictly for high conversion."
+      }
+    ],
+    "ecommerce-web-design": [
+      {
+        "q": "What payment gateways and logistics integrations do you support?",
+        "a": "We configure seamless integrations with Razorpay, Stripe, Cashfree, Shiprocket, Delhivery, and automated GST invoice generators."
+      }
+    ]
+  },
+  "generalFaqs": [
+    {
+      "q": "What makes Convertiplyhq different from traditional digital marketing agencies?",
+      "a": "We operate on an engineering-first growth model. Instead of vanity metrics like impressions, we tie all marketing activity directly to qualified pipeline, customer acquisition cost (CAC), and verified revenue ROI."
+    },
+    {
+      "q": "Do you offer contract flexibility or lock-in agreements?",
+      "a": "We work on 90-day initial performance sprints followed by flexible month-to-month retainers. We believe our results should earn your partnership every single month."
+    },
+    {
+      "q": "How do we get started with Convertiplyhq?",
+      "a": "Book a Free 30-Minute Growth Audit. Our senior strategists will analyze your current performance, identify growth bottlenecks, and provide a clear 90-day roadmap before you commit to anything."
+    }
+  ]
+}

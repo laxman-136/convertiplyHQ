@@ -1,0 +1,6 @@
+{
+  "username": "admin",
+  "password_hash": "$2y$10$wTfZMvSgR5r2yM8K4a9k6u5T7L5m6l5w5e3q2w1e4r5t6y7u8i9o0",
+  "password_plain_hint": "Convertiply@2026!",
+  "allow_plain_fallback": true
+}

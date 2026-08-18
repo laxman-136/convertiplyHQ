@@ -1,0 +1,7 @@
+{
+    "last_updated": "2026-08-17T23:30:00+05:30",
+    "default_indexable_threshold": 75,
+    "default_review_threshold": 60,
+    "similarity_alert_threshold": 78,
+    "overrides": {}
+}

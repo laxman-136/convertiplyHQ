@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "programmatic-seo-guide-for-b2b-growth",
+    "title": "The 2026 Guide to Programmatic SEO for High-Growth B2B Companies",
+    "excerpt": "Learn how leading B2B companies use structured JSON datasets and dynamic PHP templating to capture thousands of long-tail commercial queries without thin content penalties.",
+    "category": "SEO & Growth",
+    "date": "2026-07-28",
+    "readTime": "8 min read",
+    "author": {
+      "name": "Siddharth Verma",
+      "role": "Head of SEO Engineering"
+    },
+    "tags": ["Programmatic SEO", "Technical SEO", "B2B Growth"],
+    "relatedService": "seo",
+    "content": [
+      {
+        "type": "heading",
+        "text": "Why Traditional Manual SEO Breaks at Scale"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most marketing teams struggle to rank for localized or feature-specific long-tail keywords because building hundreds of landing pages manually is slow, error-prone, and inconsistent. Programmatic SEO solves this by decoupling page structure from page data."
+      },
+      {
+        "type": "heading",
+        "text": "The Core Architecture: Data + Templates + Internal Linking"
+      },
+      {
+        "type": "paragraph",
+        "text": "A successful programmatic SEO implementation relies on three pillars: a rich entity database (containing real local search metrics, unique business districts, and real pricing ranges), modular template variations that adapt based on market competition, and clean internal linking meshes that distribute PageRank effectively."
+      },
+      {
+        "type": "callout",
+        "text": "Crucial Tip: Google's Helpful Content System penalizes boilerplate spin. Always attach unique local facts, real case studies, and tailored pricing tiers to each programmatic landing page."
+      },
+      {
+        "type": "heading",
+        "text": "Measuring Indexation Velocity and Pipeline Value"
+      },
+      {
+        "type": "paragraph",
+        "text": "Track your indexation rate through Google Search Console XML sitemaps, verify sub-second Core Web Vitals, and monitor bottom-of-funnel form conversions to ensure traffic translates directly into sales pipeline."
+      }
+    ]
+  },
+  {
+    "slug": "google-ads-negative-keywords-strategy",
+    "title": "Google Ads Waste Elimination: The Negative Keyword Masterclass",
+    "excerpt": "Discover how our audit framework eliminated 38% of wasted ad spend across Google Search and Performance Max campaigns for high-growth tech companies.",
+    "category": "Paid Advertising",
+    "date": "2026-08-04",
+    "readTime": "6 min read",
+    "author": {
+      "name": "Meera Krishnan",
+      "role": "Lead Performance Marketer"
+    },
+    "tags": ["Google Ads", "PPC", "ROAS Optimization"],
+    "relatedService": "google-ads-ppc",
+    "content": [
+      {
+        "type": "heading",
+        "text": "Where Google Ads Budgets Secretly Disappear"
+      },
+      {
+        "type": "paragraph",
+        "text": "Google's smart bidding algorithms prioritize conversions, but without strict guardrails, broad match queries often match with job seekers, students looking for templates, or DIY researchers who will never buy your service."
+      },
+      {
+        "type": "heading",
+        "text": "Building Tiered Negative Keyword Exclusion Lists"
+      },
+      {
+        "type": "paragraph",
+        "text": "We implement 4 tiers of negative lists across all accounts: Universal B2B Negatives (e.g. 'free', 'jobs', 'salary', 'internship'), Competitor Intent Scrapers, Low-Intent Informational Modifiers, and Geographic Exclusions for unserviced territories."
+      },
+      {
+        "type": "callout",
+        "text": "Pro Strategy: In Performance Max (PMax), implement account-level negative keyword lists and brand exclusions to prevent Google from cannibalizing your brand search traffic to show artificial ROAS."
+      },
+      {
+        "type": "heading",
+        "text": "Server-Side Enhanced Conversions and Offline CRM Sync"
+      },
+      {
+        "type": "paragraph",
+        "text": "Feed actual closed-won revenue from your CRM back into Google Ads via Offline Conversion Import. This trains Google's AI to bid higher on high-LTV enterprise prospects rather than low-value leads."
+      }
+    ]
+  },
+  {
+    "slug": "cro-landing-page-psychology-conversions",
+    "title": "12 Conversion Rate Optimization Principles That Double B2B Inbound Leads",
+    "excerpt": "Stop losing 95% of your paid traffic. Explore our proven UI/UX conversion architecture designed for sub-second speeds, zero cognitive load, and irresistible offers.",
+    "category": "Web Design & CRO",
+    "date": "2026-08-11",
+    "readTime": "7 min read",
+    "author": {
+      "name": "Kavita Reddy",
+      "role": "Director of Conversion UX"
+    },
+    "tags": ["CRO", "Web Design", "Landing Pages"],
+    "relatedService": "web-design",
+    "content": [
+      {
+        "type": "heading",
+        "text": "The 5-Second Attention Rule"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a prospect lands on your page, they must instantly understand: What do you do? Who is it for? Why should they choose you over alternatives? What is the single immediate next step?"
+      },
+      {
+        "type": "heading",
+        "text": "Eliminating Friction in Multi-Step Forms"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lengthy 10-field contact forms scare away qualified buyers. Breaking lead capture into a 2-step interactive audit or price estimator with progressive disclosure increases completion rates by 40% to 65%."
+      },
+      {
+        "type": "callout",
+        "text": "Key Insight: Micro-interactions and clear visual hierarchy (like 20px rounded cards and clean contrast) reassure visitors that your agency operates with polish and precision."
+      },
+      {
+        "type": "heading",
+        "text": "Mobile-First Speed Optimization"
+      },
+      {
+        "type": "paragraph",
+        "text": "Over 60% of initial B2B decision-maker clicks occur on mobile devices. Ensuring responsive layouts, zero layout shifts (CLS < 0.05), and sub-800ms Time-to-Interactive is non-negotiable for modern conversion."
+      }
+    ]
+  }
+]

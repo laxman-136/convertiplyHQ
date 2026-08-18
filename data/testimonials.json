@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Raghavendra Rao",
+    "role": "VP of Growth",
+    "company": "KovaTech Cloud Systems",
+    "city": "hyderabad",
+    "service": "seo",
+    "rating": 5,
+    "quote": "Convertiplyhq transformed our organic pipeline in Hyderabad. We jumped from unranked to top 3 for our highest intent cloud migration keywords, generating over 140+ qualified enterprise demos.",
+    "result": "+340% Pipeline Growth"
+  },
+  {
+    "id": 2,
+    "name": "Pooja Mehta",
+    "role": "Founder & CEO",
+    "company": "AuraVeda Wellness Co.",
+    "city": "mumbai",
+    "service": "social-media-marketing",
+    "rating": 5,
+    "quote": "Our D2C brand in Mumbai was burning cash on Meta ads with rising CPAs. Convertiplyhq completely rebuilt our creative testing loop and scaled our blended ROAS to 5.2x within 60 days.",
+    "result": "5.2x Blended ROAS"
+  },
+  {
+    "id": 3,
+    "name": "Arjun Singhal",
+    "role": "Chief Marketing Officer",
+    "company": "NexLogix Supply Chain",
+    "city": "delhi",
+    "service": "google-ads-ppc",
+    "rating": 5,
+    "quote": "In the hyper-competitive Delhi NCR logistics market, Convertiplyhq's surgical Google Ads and LinkedIn ABM strategy helped us close 8 major enterprise contracts worth ₹1.4Cr in under 4 months.",
+    "result": "₹1.4Cr Closed Pipeline"
+  },
+  {
+    "id": 4,
+    "name": "Karthik Sundaram",
+    "role": "Head of Product Marketing",
+    "company": "DevMetrics API Platform",
+    "city": "bengaluru",
+    "service": "content-marketing",
+    "rating": 5,
+    "quote": "Their programmatic SEO templates and technical comparison pages in Bengaluru drove over 8,400 developer signups. They understand technical B2B SaaS marketing at a level most agencies can't touch.",
+    "result": "8,400+ Developer Signups"
+  },
+  {
+    "id": 5,
+    "name": "Vikram Shinde",
+    "role": "Managing Director",
+    "company": "Autovance Precision Components",
+    "city": "pune",
+    "service": "web-design",
+    "rating": 5,
+    "quote": "The new website and export SEO structure delivered 28 high-value global RFQs from Germany and North America. Clean, fast, and engineered strictly for B2B conversions.",
+    "result": "28 Tier-1 Global RFQs"
+  },
+  {
+    "id": 6,
+    "name": "Dr. Ananya Natarajan",
+    "role": "Director of Operations",
+    "company": "CareAlign Health Network",
+    "city": "chennai",
+    "service": "email-marketing",
+    "rating": 5,
+    "quote": "Local search optimization and automated patient lifecycle flows increased verified inquiries by 195% and slashed appointment no-show rates by nearly half across our Chennai clinics.",
+    "result": "+195% Patient Inquiries"
+  }
+]

@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Serve existing files and directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Clean sitemap.xml route
+    RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+    # Programmatic Service in City routes: /services/seo-in-hyderabad
+    RewriteRule ^(?:services|service)/([a-zA-Z0-9\-]+)-in-([a-zA-Z0-9\-]+)/?$ templates/template-service-city.php?service=$1&city=$2 [L,QSA]
+
+    # Blog single post route: /blog/post-slug
+    RewriteRule ^blog/([a-zA-Z0-9\-]+)/?$ blog-post.php?slug=$1 [L,QSA]
+
+    # Clean static routes
+    RewriteRule ^services/?$ services.php [L,QSA]
+    RewriteRule ^about/?$ about.php [L,QSA]
+    RewriteRule ^blog/?$ blog.php [L,QSA]
+    RewriteRule ^contact/?$ contact.php [L,QSA]
+</IfModule>

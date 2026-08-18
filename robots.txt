@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /data/
+Disallow: /cli/
+
+Sitemap: https://convertiplyhq.com/sitemap.xml
