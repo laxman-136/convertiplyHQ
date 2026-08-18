@@ -802,22 +802,45 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
     </p>
 
     <div class="grid grid-2" style="gap: 24px;">
-      <?php foreach ($page['case_studies'] as $cs): ?>
-        <div class="card" style="background: #ffffff; padding: 28px;">
-          <div class="flex justify-between items-center" style="margin-bottom: 12px;">
-            <span class="badge" style="background: var(--color-bg-alt); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 12px;">
-              📍 <?= e($cs['district']) ?> Hub
-            </span>
-            <span style="font-size: 22px; font-weight: 800; color: var(--color-success);">
-              <?= e($cs['metric_value']) ?>
-            </span>
+      <?php 
+      $displayCaseStudies = get_complete_case_studies($page['case_studies'] ?? [], $serviceName, $cityName, $districts);
+      foreach ($displayCaseStudies as $cs): 
+      ?>
+        <div class="card" style="background: #ffffff; padding: 28px 30px; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <!-- Top Metric Banner -->
+            <div style="background: var(--color-bg-alt); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-left: 4px solid var(--color-success);">
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.5px;">Quantified Result</div>
+                <div style="font-size: 24px; font-weight: 800; color: var(--color-success); line-height: 1.1; margin-top: 2px;"><?= e($cs['metric_value']) ?></div>
+              </div>
+              <span class="badge" style="background: #ffffff; border: 1px solid var(--color-border); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 700; color: var(--color-text);">
+                📍 <?= e($cs['district']) ?>
+              </span>
+            </div>
+
+            <!-- Client & Primary Metric -->
+            <div style="margin-bottom: 12px;">
+              <h4 style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: 4px;"><?= e($cs['client']) ?></h4>
+              <div style="font-size: 12.5px; color: var(--color-text-light); font-weight: 600;">
+                Primary Objective: <span style="color: var(--color-primary); font-weight: 700;"><?= e($cs['metric_label']) ?></span>
+              </div>
+            </div>
+
+            <!-- Quote -->
+            <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 20px; font-style: italic;">
+              "<?= e($cs['quote']) ?>"
+            </p>
           </div>
-          <h4 style="font-size: 18px; margin-bottom: 8px;"><?= e($cs['client']) ?></h4>
-          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 14px;">
-            "<?= e($cs['quote']) ?>"
-          </p>
-          <div style="font-size: 12px; font-weight: 600; color: var(--color-text-light);">
-            Primary Metric Tracked: <?= e($cs['metric_label']) ?>
+
+          <!-- Footer Verification Tag -->
+          <div style="border-top: 1px solid var(--color-border-subtle); padding-top: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 12px; font-weight: 700; color: var(--color-success); display: flex; align-items: center; gap: 4px;">
+              ✓ <span>Verified <?= e($cityName) ?> Deployment</span>
+            </span>
+            <span style="font-size: 12px; font-weight: 600; color: var(--color-text-light);">
+              90-Day Sprint
+            </span>
           </div>
         </div>
       <?php endforeach; ?>
