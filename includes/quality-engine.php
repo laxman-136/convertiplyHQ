@@ -119,8 +119,8 @@ function calculate_page_quality(array $page): array {
     // 3. Search Intent & Structure Match (Max 15 pts)
     $intentPoints = 0;
     if (!empty($page['service_full_name']) && !empty($page['city'])) $intentPoints += 5;
-    if (!empty($page['service_def']['what_is'])) $intentPoints += 5;
-    if (!empty($page['service_def']['ranking_factors'])) $intentPoints += 5;
+    if (!empty($page['service_def']['philosophy']) || !empty($page['service_def']['what_is']) || !empty($page['service_data']['shortDesc'])) $intentPoints += 5;
+    if (!empty($page['service_def']['algorithmic_mechanics']) || !empty($page['service_def']['ranking_factors']) || !empty($page['service_def']['phased_roadmap'])) $intentPoints += 5;
 
     $score += $intentPoints;
     $breakdown['search_intent'] = ['score' => $intentPoints, 'max' => 15];
