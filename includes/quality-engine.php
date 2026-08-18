@@ -23,8 +23,18 @@ function save_page_override(string $slug, array $data): bool {
     $overrides['overrides'][$slug] = array_merge($overrides['overrides'][$slug] ?? [], $data, [
         'updated_at' => date('c')
     ]);
+    $json = json_encode($overrides, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    
+    // 1. Write to /tmp for serverless runtime persistence
+    $tmpPath = sys_get_temp_dir() . '/page-overrides.json';
+    @file_put_contents($tmpPath, $json);
+
+    // 2. Try writing to local data directory if writable
     $filePath = DATA_PATH . '/page-overrides.json';
-    return (bool) file_put_contents($filePath, json_encode($overrides, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    if (is_writable($filePath) || (is_writable(DATA_PATH) && !file_exists($filePath))) {
+        @file_put_contents($filePath, $json);
+    }
+    return true;
 }
 
 /**
@@ -311,8 +321,18 @@ function get_drip_indexing_config(): array {
  * Save Drip-Feed Indexing Configuration
  */
 function save_drip_indexing_config(array $data): bool {
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    
+    // 1. Write to /tmp for serverless runtime persistence
+    $tmpPath = sys_get_temp_dir() . '/drip-indexing.json';
+    @file_put_contents($tmpPath, $json);
+
+    // 2. Try writing to local data directory if writable
     $filePath = DATA_PATH . '/drip-indexing.json';
-    return (bool) file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    if (is_writable($filePath) || (is_writable(DATA_PATH) && !file_exists($filePath))) {
+        @file_put_contents($filePath, $json);
+    }
+    return true;
 }
 
 /**

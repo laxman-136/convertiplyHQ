@@ -32,14 +32,26 @@ function get_base_url(): string {
     return rtrim($protocol . $host, '/');
 }
 
-/**
- * Load JSON database files with in-memory caching
- */
 function get_data(string $filename): array {
     static $cache = [];
     if (isset($cache[$filename])) {
         return $cache[$filename];
     }
+
+    // 1. Check /tmp first for dynamic serverless runtime updates (e.g. Vercel)
+    $tmpPath = sys_get_temp_dir() . '/' . $filename;
+    if (file_exists($tmpPath)) {
+        $json = @file_get_contents($tmpPath);
+        if ($json !== false) {
+            $decoded = json_decode($json, true);
+            if (is_array($decoded)) {
+                $cache[$filename] = $decoded;
+                return $decoded;
+            }
+        }
+    }
+
+    // 2. Check bundled application data directory
     $path = __DIR__ . '/../data/' . $filename;
     if (file_exists($path)) {
         $json = file_get_contents($path);
