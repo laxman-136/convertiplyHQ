@@ -350,17 +350,28 @@ function get_drip_index_schedule(): array {
 
     $startTimestamp = strtotime($startDate);
     $currentTimestamp = strtotime(date('Y-m-d'));
-    $daysElapsed = max(0, (int)floor(($currentTimestamp - $startTimestamp) / 86400));
-    $currentAllowedIndexCount = ($daysElapsed + 1) * $dailyLimit;
+    
+    if ($currentTimestamp < $startTimestamp) {
+        $daysUntilStart = (int)ceil(($startTimestamp - $currentTimestamp) / 86400);
+        $daysElapsed = -$daysUntilStart;
+        $batchDay = 0;
+        $currentAllowedIndexCount = 0;
+    } else {
+        $daysElapsed = (int)floor(($currentTimestamp - $startTimestamp) / 86400);
+        $batchDay = $daysElapsed + 1;
+        $currentAllowedIndexCount = !empty($config['enabled']) ? ($daysElapsed + 1) * $dailyLimit : count($queue);
+    }
 
     $schedule = [
         'enabled' => $config['enabled'] ?? true,
         'daily_limit' => $dailyLimit,
         'start_date' => $startDate,
         'days_elapsed' => $daysElapsed,
-        'batch_day' => $daysElapsed + 1,
+        'batch_day' => $batchDay,
         'total_allowed_index_count' => $currentAllowedIndexCount,
         'total_queue_count' => count($queue),
+        'gtm_id' => $config['gtm_id'] ?? '',
+        'gsc_verification' => $config['gsc_verification'] ?? '',
         'queue' => []
     ];
 
@@ -369,7 +380,7 @@ function get_drip_index_schedule(): array {
         $itemBatchDay = (int)ceil($itemRank / $dailyLimit);
         $itemReleaseTimestamp = $startTimestamp + (($itemBatchDay - 1) * 86400);
         $itemReleaseDate = date('Y-m-d', $itemReleaseTimestamp);
-        $isUnlocked = ($itemRank <= $currentAllowedIndexCount);
+        $isUnlocked = (!empty($config['enabled'])) ? ($itemRank <= $currentAllowedIndexCount) : true;
 
         $schedule['queue'][$item['slug']] = [
             'rank' => $itemRank,

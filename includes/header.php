@@ -17,6 +17,15 @@ $currentUri = $_SERVER['REQUEST_URI'] ?? '';
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+<?php 
+$dripConfig = function_exists('get_drip_indexing_config') ? get_drip_indexing_config() : [];
+$gtmId = trim($dripConfig['gtm_id'] ?? '');
+if ($gtmId): ?>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= e($gtmId) ?>"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<?php endif; ?>
 
 <header class="site-header">
   <div class="container nav-container">

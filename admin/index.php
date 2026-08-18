@@ -137,8 +137,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dripConfig = get_drip_indexing_config();
         $dripConfig['daily_limit'] = max(1, (int)($_POST['daily_limit'] ?? 10));
         $dripConfig['enabled'] = isset($_POST['enabled']) ? true : false;
+        $dripConfig['start_date'] = !empty($_POST['start_date']) ? trim($_POST['start_date']) : date('Y-m-d');
+        $dripConfig['gtm_id'] = trim($_POST['gtm_id'] ?? '');
+        $dripConfig['gsc_verification'] = trim($_POST['gsc_verification'] ?? '');
         save_drip_indexing_config($dripConfig);
-        $actionFeedback = ['type' => 'success', 'msg' => "Updated Drip-Indexing configuration: {$dripConfig['daily_limit']} pages/day."];
+        $actionFeedback = ['type' => 'success', 'msg' => "Updated Drip-Indexing & Google Integrations: {$dripConfig['daily_limit']} pages/day starting {$dripConfig['start_date']}."];
     }
 }
 
@@ -292,37 +295,88 @@ $allCities = get_all_cities();
     </div>
   <?php endif; ?>
 
-  <!-- Drip Indexing Pipeline Banner -->
-  <div class="drip-card">
-    <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 20px;">
+  <!-- Drip Indexing, GTM & Search Console Configuration Center -->
+  <div class="drip-card" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 1px solid #bfdbfe; border-radius: var(--radius-lg); padding: 28px; margin-bottom: 28px;">
+    <div class="flex justify-between items-center" style="margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
       <div>
         <div class="flex items-center gap-8" style="margin-bottom: 6px;">
-          <span class="badge" style="background: #1d4ed8; color: #ffffff; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 700;">
-            🔥 DRIP SPEED: <?= $dripSchedule['daily_limit'] ?> PAGES / DAY
+          <span class="badge" style="background: <?= !empty($dripConfig['enabled']) ? '#16a34a' : '#64748b' ?>; color: #ffffff; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 700;">
+            <?= !empty($dripConfig['enabled']) ? '🟢 DRIP GATEWAY ACTIVE' : '⏸️ DRIP GATEWAY PAUSED' ?>
+          </span>
+          <span class="badge" style="background: #1d4ed8; color: #ffffff; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 700;">
+            ⚡ <?= $dripSchedule['daily_limit'] ?> PAGES / DAY
           </span>
           <span style="font-size: 13px; font-weight: 600; color: #1e3a8a;">
-            Batch Day #<?= $dripSchedule['batch_day'] ?> (Started <?= e($dripSchedule['start_date']) ?>)
+            <?= ($dripSchedule['batch_day'] > 0) ? "Batch Day #{$dripSchedule['batch_day']} (Started " . e($dripSchedule['start_date']) . ")" : "Scheduled to Start on " . e($dripSchedule['start_date']) ?>
           </span>
         </div>
-        <h2 style="font-size: 22px; margin-bottom: 4px; color: #1e3a8a;">Google Search Indexing Pipeline is Active</h2>
-        <p style="font-size: 14px; color: #3b82f6; margin-bottom: 0;">
-          Exactly <strong><?= $dripSchedule['daily_limit'] ?> pages/day</strong> are unlocked into <code style="background: rgba(255,255,255,0.6); padding: 2px 6px; border-radius: 4px;">sitemap.xml</code> with <code style="background: rgba(255,255,255,0.6); padding: 2px 6px; border-radius: 4px;">index, follow</code>. Future pages remain safely on <code style="background: rgba(255,255,255,0.6); padding: 2px 6px; border-radius: 4px;">noindex, follow</code>.
+        <h2 style="font-size: 22px; margin-bottom: 4px; color: #0f172a;">Google Telemetry & Drip Indexing Engine</h2>
+        <p style="font-size: 13.5px; color: #475569; margin-bottom: 0;">
+          Safely scale your 12,675 programmatic landing pages into Google's index. Unlocked pages are submitted in <code style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #cbd5e1;">sitemap.xml</code> with <code style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #cbd5e1;">index, follow</code> while upcoming batches maintain <code style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #cbd5e1;">noindex, follow</code>.
         </p>
       </div>
 
-      <form method="POST" style="background: #ffffff; padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid #bfdbfe; display: flex; align-items: center; gap: 10px;">
-        <input type="hidden" name="action" value="update_drip_config">
-        <label style="font-size: 13px; font-weight: 600; color: #1e293b;">Daily Speed:</label>
-        <select name="daily_limit" class="filter-select" style="padding: 6px 10px;">
-          <option value="5" <?= $dripSchedule['daily_limit'] === 5 ? 'selected' : '' ?>>5 pages/day</option>
-          <option value="10" <?= $dripSchedule['daily_limit'] === 10 ? 'selected' : '' ?>>10 pages/day (Recommended)</option>
-          <option value="20" <?= $dripSchedule['daily_limit'] === 20 ? 'selected' : '' ?>>20 pages/day</option>
-          <option value="50" <?= $dripSchedule['daily_limit'] === 50 ? 'selected' : '' ?>>50 pages/day</option>
-        </select>
-        <input type="hidden" name="enabled" value="1">
-        <button type="submit" class="btn btn-primary btn-sm">Update Speed</button>
-      </form>
+      <!-- Live Integration Badges -->
+      <div class="flex items-center gap-8" style="flex-wrap: wrap;">
+        <div style="background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: var(--radius-sm); font-size: 12px;">
+          <strong>GTM Container:</strong> 
+          <span style="color: <?= !empty($dripConfig['gtm_id']) ? 'var(--color-success)' : 'var(--color-text-muted)' ?>; font-weight: 700;">
+            <?= !empty($dripConfig['gtm_id']) ? e($dripConfig['gtm_id']) : 'Not Configured' ?>
+          </span>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: var(--radius-sm); font-size: 12px;">
+          <strong>Search Console:</strong> 
+          <span style="color: <?= !empty($dripConfig['gsc_verification']) ? 'var(--color-success)' : 'var(--color-text-muted)' ?>; font-weight: 700;">
+            <?= !empty($dripConfig['gsc_verification']) ? 'Verified' : 'Not Configured' ?>
+          </span>
+        </div>
+      </div>
     </div>
+
+    <!-- Interactive Config Form -->
+    <form method="POST" style="background: #ffffff; padding: 20px 24px; border-radius: var(--radius-md); border: 1px solid #bfdbfe; box-shadow: var(--shadow-sm);">
+      <input type="hidden" name="action" value="update_drip_config">
+      
+      <div class="grid grid-4" style="gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Google Tag Manager (GTM ID):</label>
+          <input type="text" name="gtm_id" value="<?= e($dripConfig['gtm_id'] ?? '') ?>" placeholder="e.g. GTM-XXXXXXX" class="filter-input" style="width: 100%; padding: 8px 12px; font-size: 13px;">
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Google Search Console Code:</label>
+          <input type="text" name="gsc_verification" value="<?= e($dripConfig['gsc_verification'] ?? '') ?>" placeholder="e.g. meta tag or token" class="filter-input" style="width: 100%; padding: 8px 12px; font-size: 13px;">
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Drip Start Date:</label>
+          <input type="date" name="start_date" value="<?= e($dripSchedule['start_date'] ?? date('Y-m-d')) ?>" class="filter-input" style="width: 100%; padding: 8px 12px; font-size: 13px;">
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Daily Release Velocity:</label>
+          <select name="daily_limit" class="filter-select" style="width: 100%; padding: 8px 12px; font-size: 13px;">
+            <option value="5" <?= $dripSchedule['daily_limit'] === 5 ? 'selected' : '' ?>>5 pages / day</option>
+            <option value="10" <?= $dripSchedule['daily_limit'] === 10 ? 'selected' : '' ?>>10 pages / day (Recommended)</option>
+            <option value="20" <?= $dripSchedule['daily_limit'] === 20 ? 'selected' : '' ?>>20 pages / day (Fast Growth)</option>
+            <option value="50" <?= $dripSchedule['daily_limit'] === 50 ? 'selected' : '' ?>>50 pages / day</option>
+            <option value="100" <?= $dripSchedule['daily_limit'] === 100 ? 'selected' : '' ?>>100 pages / day</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 12px; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #1e293b; cursor: pointer;">
+          <input type="checkbox" name="enabled" value="1" <?= !empty($dripConfig['enabled']) ? 'checked' : '' ?> style="width: 16px; height: 16px;">
+          Enable Drip Indexing Gateway (Releases batches incrementally based on start date)
+        </label>
+        
+        <div class="flex gap-8">
+          <a href="<?= site_url('sitemap.xml') ?>" target="_blank" class="btn btn-ghost btn-sm" style="font-size: 12px;">View Live Sitemap Index ↗</a>
+          <button type="submit" class="btn btn-primary btn-sm" style="padding: 8px 18px; font-size: 13px;">Save & Apply Settings →</button>
+        </div>
+      </div>
+    </form>
   </div>
 
   <!-- Summary Statistics Grid -->

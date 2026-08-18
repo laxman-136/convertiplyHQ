@@ -1,7 +1,9 @@
 {
   "enabled": true,
   "daily_limit": 10,
-  "start_date": "2026-08-17",
+  "start_date": "2026-08-18",
+  "gtm_id": "",
+  "gsc_verification": "",
   "priority_metros": [
     "hyderabad",
     "bengaluru",

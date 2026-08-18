@@ -25,6 +25,10 @@ $serviceSchemaData = $pageSeo['serviceData'] ?? null;
 $citySchemaData = $pageSeo['cityData'] ?? null;
 $siteData = get_data('pages.json')['site'] ?? [];
 $robotsMeta = $pageSeo['robots'] ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+$dripConfig = function_exists('get_drip_indexing_config') ? get_drip_indexing_config() : [];
+$gscCode = trim($dripConfig['gsc_verification'] ?? '');
+$gtmId = trim($dripConfig['gtm_id'] ?? '');
 ?>
 <!-- Primary SEO Meta Tags -->
 <title><?= e($metaTitle) ?></title>
@@ -32,6 +36,25 @@ $robotsMeta = $pageSeo['robots'] ?? 'index, follow, max-image-preview:large, max
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="<?= e($robotsMeta) ?>">
 <link rel="canonical" href="<?= e($canonicalUrl) ?>">
+
+<?php if ($gscCode): ?>
+<!-- Google Search Console Verification -->
+<?php if (str_contains($gscCode, '<meta')): ?>
+<?= $gscCode . "\n" ?>
+<?php else: ?>
+<meta name="google-site-verification" content="<?= e($gscCode) ?>">
+<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($gtmId): ?>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','<?= e($gtmId) ?>');</script>
+<!-- End Google Tag Manager -->
+<?php endif; ?>
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="<?= e($ogType) ?>">
