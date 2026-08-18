@@ -14,7 +14,7 @@ $currentUri = $_SERVER['REQUEST_URI'] ?? '';
 <head>
   <meta charset="UTF-8">
   <?php require __DIR__ . '/seo-meta.php'; ?>
-  <link rel="stylesheet" href="<?= site_url('assets/css/style.css') ?>">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 

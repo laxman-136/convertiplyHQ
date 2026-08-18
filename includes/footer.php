@@ -152,6 +152,6 @@ $allCities = get_all_cities();
   </div>
 </footer>
 
-<script src="<?= site_url('assets/js/main.js') ?>"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

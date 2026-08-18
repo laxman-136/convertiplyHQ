@@ -18,12 +18,18 @@ define('SITE_PHONE', '+91 98765 43210');
 define('SITE_EMAIL', 'growth@convertiplyhq.com');
 define('SITE_ADDRESS', 'Level 4, Cyber Towers, HITEC City, Hyderabad, Telangana 500081');
 
-// Determine Base URL dynamically or fallback
+// Determine Base URL dynamically with full HTTPS and Reverse Proxy support (Vercel, Cloudflare, Render)
 function get_base_url(): string {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? "https://" : "http://";
-    $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
-    $scriptDir = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/\\');
-    return rtrim($protocol . $host . $scriptDir, '/');
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+        || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && str_contains(strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']), 'https'))
+        || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on')
+        || (!empty($_SERVER['HTTP_HOST']) && str_contains($_SERVER['HTTP_HOST'], 'vercel.app'));
+
+    $protocol = $isHttps ? "https://" : "http://";
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8085';
+    
+    return rtrim($protocol . $host, '/');
 }
 
 /**

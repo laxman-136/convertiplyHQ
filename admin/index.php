@@ -63,7 +63,7 @@ if (!$isLoggedIn):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="<?= site_url('assets/css/style.css') ?>">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <style>
     body { background: #f1f5f9; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; padding: 20px; }
     .login-box { background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 40px; width: 100%; max-width: 420px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
@@ -230,7 +230,7 @@ $allCities = get_all_cities();
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="<?= site_url('assets/css/style.css') ?>">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <style>
     body { background-color: #f8fafc; color: #1e293b; font-family: 'Inter', sans-serif; }
     .admin-header { background: #ffffff; border-bottom: 1px solid var(--color-border); padding: 18px 0; }
