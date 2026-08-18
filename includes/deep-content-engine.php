@@ -81,6 +81,61 @@ function get_complete_case_studies(array $existing, string $serviceName, string 
     return array_slice($results, 0, 2);
 }
 
+function get_tailored_industry_playbooks(string $serviceSlug, string $cityName, string $serviceName): array {
+    return [
+        [
+            'industry' => 'Healthcare, Hospitals & Clinics',
+            'icon' => '🏥',
+            'badge' => 'Patient Trust & Doctor Schema',
+            'badge_color' => '#059669',
+            'bg_color' => 'rgba(5, 150, 105, 0.08)',
+            'challenge' => 'Strict medical accuracy standards, intense local map pack competition, and high patient appointment drop-off rates.',
+            'strategy' => "Deploying condition-specific landing pages, verified doctor profile JSON-LD schemas, automated review syndication loops, and friction-free 1-click WhatsApp/call appointment booking flows across {$cityName}.",
+            'kpi' => '3.8x Monthly Verified Patient Bookings'
+        ],
+        [
+            'industry' => 'B2B SaaS & Tech Enterprise',
+            'icon' => '💻',
+            'badge' => 'Demo Funnels & Account-Based SEO',
+            'badge_color' => '#194cff',
+            'bg_color' => 'rgba(25, 76, 255, 0.08)',
+            'challenge' => 'Long enterprise sales cycles (3–9 months), multi-stakeholder procurement reviews, and high cost-per-click on generic search terms.',
+            'strategy' => "Dominating bottom-of-funnel competitor comparison queries, engineering sub-second interactive demo landing pages, and setting up server-side CRM lead scoring to route high-intent accounts directly to sales architects.",
+            'kpi' => '+240% Sales-Qualified Pipeline (SQL)'
+        ],
+        [
+            'industry' => 'Real Estate & Commercial PropTech',
+            'icon' => '🏢',
+            'badge' => 'High-Ticket Investor Inquiries',
+            'badge_color' => '#d97706',
+            'bg_color' => 'rgba(217, 119, 6, 0.08)',
+            'challenge' => 'High lead spam rates, fierce ad bidding wars in prime districts, and low conversion on generic brochure download forms.',
+            'strategy' => "Geo-fencing high-intent search campaigns around prime {$cityName} commercial corridors, building interactive floorplan calculators, and deploying multi-touch SMS/WhatsApp qualification sequences.",
+            'kpi' => '42% Lower Cost-per-Verified Site Visit'
+        ],
+        [
+            'industry' => 'eCommerce & Direct-to-Consumer (D2C)',
+            'icon' => '🛍️',
+            'badge' => 'ROAS & Checkout CRO',
+            'badge_color' => '#7c3aed',
+            'bg_color' => 'rgba(124, 58, 237, 0.08)',
+            'challenge' => 'Shopping cart abandonment exceeding 70%, rising paid media acquisition costs, and weak customer repeat retention.',
+            'strategy' => "Optimizing product schema graphs, engineering 1-page express checkout funnels, deploying automated cart recovery drips, and scaling high-ROAS Performance Max ad campaigns.",
+            'kpi' => '4.6x Average Blended ROAS'
+        ],
+        [
+            'industry' => 'Higher Education & Professional Services',
+            'icon' => '🎓',
+            'badge' => 'Admission Inquiries & Authority',
+            'badge_color' => '#0284c7',
+            'bg_color' => 'rgba(2, 132, 199, 0.08)',
+            'challenge' => 'Seasonal enrollment cycles, student intent leakage to aggregator directories, and high friction in long application forms.',
+            'strategy' => "Building program-specific curriculum hubs, setting up AI search engine entity citations, and implementing progressive multi-step inquiry forms with automated admission counseling routing.",
+            'kpi' => '+185% Direct Course Applications'
+        ]
+    ];
+}
+
 function get_service_specific_keyword_matrix(string $serviceSlug, string $cityName, string $stateName, string $serviceName): array {
     $s = strtolower($serviceSlug);
 

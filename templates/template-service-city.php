@@ -414,22 +414,34 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
       Generic marketing playbooks fail because different industries possess radically different customer purchase journeys, sales cycle lengths, and compliance requirements. Here is how our <?= e($cityName) ?> engineering squad adapts this discipline across five core sectors:
     </p>
 
-    <div class="industry-playbook-grid">
-      <?php foreach (($definition['industry_playbooks'] ?? []) as $ind): ?>
-        <div class="industry-card-pro">
-          <div class="flex justify-between items-center" style="margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-            <h4 style="font-size: 18px; margin-bottom: 0; color: var(--color-text);">
-              🏢 <?= e($ind['industry']) ?>
-            </h4>
-            <span class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">
-              <?= e($ind['focus']) ?>
-            </span>
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php 
+      $industryPlaybooks = get_tailored_industry_playbooks($page['service_slug'], $cityName, $serviceName);
+      foreach ($industryPlaybooks as $ind): 
+      ?>
+        <div class="card" style="background: #ffffff; padding: 24px 26px; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="flex justify-between items-center" style="margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <h4 style="font-size: 17px; margin-bottom: 0; color: var(--color-text); font-weight: 700;">
+                <?= e($ind['icon']) ?> <?= e($ind['industry']) ?>
+              </h4>
+              <span style="font-size: 11px; font-weight: 700; color: <?= e($ind['badge_color']) ?>; background: <?= e($ind['bg_color']) ?>; padding: 4px 10px; border-radius: var(--radius-pill);">
+                <?= e($ind['badge']) ?>
+              </span>
+            </div>
+            
+            <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 12px;">
+              <strong style="color: var(--color-text);">Sector Challenge:</strong> <?= e($ind['challenge']) ?>
+            </p>
+            
+            <p style="font-size: 13.5px; color: var(--color-text); line-height: 1.6; margin-bottom: 16px;">
+              <strong style="color: var(--color-primary);">Growth Playbook:</strong> <?= e($ind['strategy']) ?>
+            </p>
           </div>
-          <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 12px;">
-            <strong>Tailored Strategic Execution:</strong> <?= e($ind['strategy']) ?>
-          </p>
-          <div style="font-size: 13px; color: var(--color-text); line-height: 1.6;">
-            <strong>Operational Value Proposition:</strong> By configuring industry-specific funnel paths and compliance checkpoints, your <?= e($cityName) ?> business establishes high authority, reduces sales cycle friction, and converts enterprise buyers at significantly higher rates.
+
+          <div style="border-top: 1px solid var(--color-border-subtle); padding-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 12px;">
+            <span style="color: var(--color-text-light); font-weight: 600;">Benchmark Target:</span>
+            <span style="color: var(--color-success); font-weight: 700;"><?= e($ind['kpi']) ?></span>
           </div>
         </div>
       <?php endforeach; ?>
