@@ -93,7 +93,7 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
           Data-Driven <span style="color: var(--color-primary);"><?= e($serviceName) ?></span> Services in <?= e($cityName) ?>
         </h1>
         <p class="lead" style="font-size: 16.5px; line-height: 1.7; margin-bottom: 24px;">
-          Convertiplyhq engineers high-performing, revenue-tied <?= strtolower(e($serviceName)) ?> campaigns tailored specifically to <?= e($cityName) ?>'s commercial ecosystem. We combine technical rigor, sub-second landing page architecture, and transparent CRM attribution to scale predictable customer acquisition.
+          We build revenue-focused <?= strtolower(e($serviceName)) ?> engines tailored to <?= e($cityName) ?>'s commercial landscape. We combine clean code, sub-second mobile page speeds, and direct CRM pipeline attribution so you know exactly which keywords turn into closed customer contracts.
         </p>
 
         <!-- Quick Facts Pill Grid -->
@@ -194,14 +194,14 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
       The Engineering Philosophy Behind <?= e($serviceFullName) ?>
     </h2>
     <div class="editorial-lead-box">
-      <p style="margin-bottom: 12px;">
-        <?= e($definition['philosophy'] ?? "Modern digital acquisition requires engineering precision. Rather than treating marketing as superficial promotion, we build systematic growth loops that combine technical site speed, topical keyword clustering, high-converting checkout flows, and granular server-side attribution.") ?>
+      <p style="margin-bottom: 12px; font-size: 15.5px; line-height: 1.7;">
+        <?= e($definition['philosophy'] ?? "Most agencies sell vanity metrics like rankings and impressions. We don't. We care about pipeline, cost-per-acquisition (CAC), and customer lifetime value (LTV). If your digital marketing doesn't generate qualified sales opportunities, it isn't working.") ?>
       </p>
-      <p style="margin-bottom: 12px; font-size: 14.5px; color: var(--color-text-muted);">
-        For enterprises and high-growth businesses operating in <?= e($cityName) ?>, executing <?= strtolower(e($serviceName)) ?> requires navigating intense local search competition and capturing high-intent commercial buyers at the exact moment of decision-making. Search algorithms have evolved past superficial metadata matching—today, neural search systems evaluate comprehensive semantic depth, factual accuracy, user dwell patterns, and multi-channel brand consensus.
+      <p style="margin-bottom: 12px; font-size: 14.5px; line-height: 1.7; color: var(--color-text-muted);">
+        For growing companies in <?= e($cityName) ?>, winning commercial search traffic takes more than basic keyword insertion. You need technical site speed that satisfies Google's Core Web Vitals, deep subject coverage that answers every buyer question, and clear conversion paths that turn visitors into booked meetings.
       </p>
-      <p style="margin-bottom: 0; font-size: 14.5px; color: var(--color-text-muted);">
-        By anchoring your digital architecture on verifiable customer acquisition unit economics rather than vanity traffic metrics, we transform your web presence into an appreciating enterprise asset that continually lowers your blended cost-per-acquisition (CAC) while compounding organic and paid market share.
+      <p style="margin-bottom: 0; font-size: 14.5px; line-height: 1.7; color: var(--color-text-muted);">
+        Instead of guessing, we connect Google Analytics directly to your CRM. You get full visibility into every sales lead, where they came from, and what it cost to win them.
       </p>
     </div>
 
