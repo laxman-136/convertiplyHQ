@@ -1,12 +1,14 @@
 <?php
 /**
- * Convertiplyhq - Programmatic Service × City Landing Page Template
- * Complete 18-section architecture adhering strictly to Programmatic SEO specifications.
+ * Convertiplyhq - Authoritative Programmatic Service × City Landing Page Template
+ * Exhaustive 5,000+ word editorial architecture delivering deep technical rigor,
+ * micro-district economic dynamics, 12-month roadmaps, and 5-industry playbooks.
  */
 
 if (!defined('CONVERTIPLY_INIT')) {
     require_once __DIR__ . '/../includes/config.php';
 }
+require_once __DIR__ . '/../includes/deep-content-engine.php';
 
 // Extract service and city parameters
 $serviceSlug = $serviceSlug ?? ($_GET['service'] ?? 'seo');
@@ -14,10 +16,9 @@ $citySlug = $citySlug ?? ($_GET['city'] ?? 'hyderabad');
 
 $page = get_programmatic_page($serviceSlug, $citySlug);
 
-// Uniqueness Safeguard: If missing or thin content (no case studies and < 4 FAQs), do not render thin content
+// Safeguard against thin content
 if (!$page || (empty($page['case_studies']) && count($page['faqs'] ?? []) < 4)) {
     http_response_code(404);
-    error_log("[Convertiplyhq PSEO Safeguard] Page omitted due to thin content criteria: {$serviceSlug}-in-{$citySlug}");
     require __DIR__ . '/../index.php';
     exit;
 }
@@ -59,392 +60,761 @@ $pageSeo = [
 ];
 
 require __DIR__ . '/../includes/header.php';
+
+// Retrieve enriched definition data and deep modules
+$definition = get_service_definition($page['service_slug']);
+$districts = $page['city_data']['keyDistricts'] ?? ['Central Commercial District', 'IT Corridor', 'Industrial Zone', 'Suburban Hub'];
+$industries = $page['industry_focus'];
+$deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'], $serviceName, $cityName, $stateName);
 ?>
 
-<!-- Section 1: Breadcrumbs -->
+<!-- 1. Breadcrumbs -->
 <div class="breadcrumb-wrap">
   <div class="container">
-    <ul class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="<?= site_url() ?>" itemprop="item"><span itemprop="name">Home</span></a>
-        <meta itemprop="position" content="1" />
-      </li>
+    <ul class="breadcrumb-list">
+      <li class="breadcrumb-item"><a href="<?= site_url() ?>">Home</a></li>
       <li class="breadcrumb-separator">/</li>
-      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="<?= site_url('services') ?>" itemprop="item"><span itemprop="name">Services</span></a>
-        <meta itemprop="position" content="2" />
-      </li>
+      <li class="breadcrumb-item"><a href="<?= site_url('services') ?>">Services</a></li>
       <li class="breadcrumb-separator">/</li>
-      <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <span itemprop="name"><?= e($serviceName) ?> in <?= e($cityName) ?></span>
-        <meta itemprop="position" content="3" />
-      </li>
+      <li class="breadcrumb-item active"><?= e($serviceName) ?> in <?= e($cityName) ?></li>
     </ul>
   </div>
 </div>
 
-<!-- Section 2: Hero -->
-<section class="hero">
+<!-- 2. Hero Section -->
+<section class="section" style="padding-bottom: 32px; background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-alt) 100%);">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
+    <div class="grid grid-2" style="align-items: center; gap: 48px;">
+      <div>
         <div class="section-tag section-tag-secondary">
-          <span>📍</span> <?= e($cityName) ?>, <?= e($stateName) ?> · <?= e($page['service_category']) ?>
+          📍 Regional Growth Hub · <?= e($cityName) ?>, <?= e($stateName) ?>
         </div>
-        <h1><?= e($serviceName) ?> Services in <span style="color: var(--color-primary);"><?= e($cityName) ?></span></h1>
-        <p class="lead">
-          <?= e($page['intro_stat']) ?>
+        <h1 style="font-size: 38px; line-height: 1.2; margin-bottom: 18px;">
+          Data-Driven <span style="color: var(--color-primary);"><?= e($serviceName) ?></span> Services in <?= e($cityName) ?>
+        </h1>
+        <p class="lead" style="font-size: 16.5px; line-height: 1.7; margin-bottom: 24px;">
+          Convertiplyhq engineers high-performing, revenue-tied <?= strtolower(e($serviceName)) ?> campaigns tailored specifically to <?= e($cityName) ?>'s commercial ecosystem. We combine technical rigor, sub-second landing page architecture, and transparent CRM attribution to scale predictable customer acquisition.
         </p>
 
-        <div class="flex gap-16" style="margin-top: 24px; flex-wrap: wrap;">
-          <a href="<?= site_url('contact?service=' . urlencode($page['service_slug']) . '&city=' . urlencode($page['city_slug'])) ?>" class="btn btn-primary" id="heroCtaBtn">
-            Get My Free Proposal →
-          </a>
-          <a href="#deliverables-grid" class="btn btn-ghost">
-            View What's Included
-          </a>
+        <!-- Quick Facts Pill Grid -->
+        <div class="grid grid-3" style="gap: 12px; margin-bottom: 28px;">
+          <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 12px 14px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Active Market SMEs</div>
+            <div style="font-size: 15px; font-weight: 800; color: var(--color-primary); margin-top: 2px;"><?= e($page['city_data']['activeSMEs'] ?? '8,500+') ?></div>
+          </div>
+          <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 12px 14px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Typical Retainer</div>
+            <div style="font-size: 15px; font-weight: 800; color: var(--color-text); margin-top: 2px;"><?= e($page['avg_price_range']) ?></div>
+          </div>
+          <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 12px 14px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Growth Horizon</div>
+            <div style="font-size: 15px; font-weight: 800; color: var(--color-success); margin-top: 2px;">90-Day Sprint</div>
+          </div>
         </div>
 
-        <div class="hero-stats-row">
-          <div class="hero-stat-item">
-            <h3><?= e($page['city_data']['avgMonthlySearches'] ?? '35,000+') ?></h3>
-            <p>Monthly Local Searches</p>
-          </div>
-          <div class="hero-stat-item">
-            <h3><?= e($page['avg_price_range']) ?></h3>
-            <p>Benchmark Price Range</p>
-          </div>
-          <div class="hero-stat-item">
-            <h3><?= e($page['city_data']['auditedBusinessesCount'] ?? '180+') ?></h3>
-            <p><?= e($cityName) ?> Brands Audited</p>
-          </div>
+        <div class="flex gap-12" style="flex-wrap: wrap;">
+          <a href="#audit-form" class="btn btn-primary">Claim Free <?= e($cityName) ?> Audit →</a>
+          <a href="#roadmap" class="btn btn-ghost">View 12-Month Playbook</a>
         </div>
       </div>
 
-      <!-- Quick Lead Card in Hero -->
-      <div class="hero-card">
-        <div class="hero-card-header">
-          <span class="section-tag" style="font-size: 11px; margin-bottom: 6px;">Confidential Strategy Audit</span>
-          <h3>Request Your <?= e($cityName) ?> Growth Proposal</h3>
-          <p>Get a diagnostic breakdown of your market opportunities and competitor gaps.</p>
+      <!-- Lead Capture Card -->
+      <div class="card" id="audit-form" style="padding: 32px; box-shadow: var(--shadow-md);">
+        <div style="margin-bottom: 20px;">
+          <span class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: var(--radius-pill);">
+            ⚡ 24-HOUR TURNAROUND
+          </span>
+          <h3 style="font-size: 21px; margin-top: 8px; margin-bottom: 4px;">Request Your <?= e($cityName) ?> Growth Blueprint</h3>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); margin-bottom: 0;">
+            Our senior architects will audit your current <?= strtolower(e($serviceName)) ?> channels and identify high-value revenue leaks.
+          </p>
         </div>
-        <form action="<?= site_url('contact') ?>" method="GET" class="hero-form">
+
+        <form action="<?= site_url('contact') ?>" method="GET" style="display: flex; flex-direction: column; gap: 14px;">
           <input type="hidden" name="service" value="<?= e($page['service_slug']) ?>">
           <input type="hidden" name="city" value="<?= e($page['city_slug']) ?>">
+
           <div class="form-group">
-            <label class="form-label">Website URL / Company Name</label>
+            <label class="form-label" style="font-size: 12.5px;">Company Website / Domain</label>
             <input type="text" name="website" class="form-control" placeholder="e.g. yourcompany.com" required>
           </div>
+
           <div class="form-group">
-            <label class="form-label">Work Email</label>
-            <input type="email" name="email" class="form-control" placeholder="name@company.com" required>
+            <label class="form-label" style="font-size: 12.5px;">Work Email Address</label>
+            <input type="email" name="email" class="form-control" placeholder="alex@company.com" required>
           </div>
+
           <div class="form-group">
-            <label class="form-label">Phone / WhatsApp</label>
-            <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+            <label class="form-label" style="font-size: 12.5px;">Primary Business Hub</label>
+            <select name="district" class="form-control">
+              <?php foreach ($districts as $dist): ?>
+                <option value="<?= e($dist) ?>"><?= e($dist) ?> (<?= e($cityName) ?>)</option>
+              <?php endforeach; ?>
+            </select>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 8px;">Claim Free <?= e($cityName) ?> Proposal →</button>
+
+          <button type="submit" class="btn btn-primary btn-block" style="padding: 12px; font-size: 14px;">
+            Generate My Free <?= e($cityName) ?> Audit Roadmap →
+          </button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 3: Intro / Overview Block -->
-<section class="section">
-  <div class="container">
-    <div class="grid grid-2" style="gap: 48px; align-items: center;">
-      <div>
-        <div class="section-tag">Market Overview</div>
-        <h2>Why <?= e($serviceName) ?> Matters for Businesses in <?= e($cityName) ?></h2>
-        <p>
-          <?= e($page['service_full_name']) ?> in <?= e($cityName) ?> is engineered to help ambitious enterprises and high-growth SMEs capture ready-to-buy customer demand. In a market where digital competition is rapidly intensifying across commercial hubs like <?= e($page['city_data']['hub'] ?? $cityName) ?>, relying on unoptimized marketing creates high customer acquisition friction.
-        </p>
-        <p>
-          We tailor every campaign to the <?= e($cityName) ?> commercial ecosystem, prioritizing high-growth regional sectors including <strong><?= implode(', ', $page['industry_focus']) ?></strong>.
-        </p>
-      </div>
-
-      <div class="card card-tint">
-        <h3 style="font-size: 19px; margin-bottom: 16px;">Core Deliverables Included:</h3>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <?php foreach (array_slice($page['deliverables'], 0, 6) as $del): ?>
-            <li style="font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
-              <span style="color: var(--color-success); font-weight: bold; font-size: 16px;">✓</span>
-              <span><?= e($del['title']) ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-        <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--color-border);">
-          <span style="font-size: 13px; color: var(--color-text-light);">Typical Retainer: <strong><?= e($page['avg_price_range']) ?></strong></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4: Proof Strip (Static Site-Wide) -->
-<section class="trust-strip" style="background: var(--color-bg-alt);">
+<!-- 3. Proof & Benchmarks Strip -->
+<section class="trust-strip" style="background: #ffffff;">
   <div class="container">
     <div class="grid grid-4" style="text-align: center; gap: 20px;">
       <div>
-        <div style="font-size: 32px; font-weight: 800; color: var(--color-primary); margin-bottom: 2px;">148+</div>
-        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">5-Star Client Reviews</div>
+        <div style="font-size: 28px; font-weight: 800; color: var(--color-primary);">4.8x</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Average Blended ROAS</div>
       </div>
       <div>
-        <div style="font-size: 32px; font-weight: 800; color: var(--color-primary); margin-bottom: 2px;">5+ Years</div>
-        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Engineering Growth</div>
+        <div style="font-size: 28px; font-weight: 800; color: var(--color-primary);">+320%</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Avg Pipeline Growth</div>
       </div>
       <div>
-        <div style="font-size: 32px; font-weight: 800; color: var(--color-primary); margin-bottom: 2px;">210+</div>
-        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Brands Scaled in India</div>
+        <div style="font-size: 28px; font-weight: 800; color: var(--color-primary);">100%</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">White-Hat Engineering</div>
       </div>
       <div>
-        <div style="font-size: 32px; font-weight: 800; color: var(--color-primary); margin-bottom: 2px;">₹45Cr+</div>
-        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Client Revenue Tracked</div>
+        <div style="font-size: 28px; font-weight: 800; color: var(--color-primary);">90-Day</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-text-muted);">Performance Sprints</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 5: Case Studies (Omitted if empty) -->
-<?php if (!empty($page['case_studies'])): ?>
+<!-- 4. Deep Technical Discipline Framework & Core Philosophy -->
 <section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag section-tag-secondary">Proven Results</div>
-      <h2><?= e($cityName) ?> Client Case Studies</h2>
-      <p>Real performance outcomes delivered for companies in <?= e($cityName) ?>.</p>
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Core Technical Framework</div>
+    <h2 style="font-size: 32px; line-height: 1.3; margin-bottom: 16px;">
+      The Engineering Philosophy Behind <?= e($serviceFullName) ?>
+    </h2>
+    <div class="editorial-lead-box">
+      <p style="margin-bottom: 12px;">
+        <?= e($definition['philosophy'] ?? "Modern digital acquisition requires engineering precision. Rather than treating marketing as superficial promotion, we build systematic growth loops that combine technical site speed, topical keyword clustering, high-converting checkout flows, and granular server-side attribution.") ?>
+      </p>
+      <p style="margin-bottom: 12px; font-size: 14.5px; color: var(--color-text-muted);">
+        For enterprises and high-growth businesses operating in <?= e($cityName) ?>, executing <?= strtolower(e($serviceName)) ?> requires navigating intense local search competition and capturing high-intent commercial buyers at the exact moment of decision-making. Search algorithms have evolved past superficial metadata matching—today, neural search systems evaluate comprehensive semantic depth, factual accuracy, user dwell patterns, and multi-channel brand consensus.
+      </p>
+      <p style="margin-bottom: 0; font-size: 14.5px; color: var(--color-text-muted);">
+        By anchoring your digital architecture on verifiable customer acquisition unit economics rather than vanity traffic metrics, we transform your web presence into an appreciating enterprise asset that continually lowers your blended cost-per-acquisition (CAC) while compounding organic and paid market share.
+      </p>
     </div>
 
-    <div class="flex flex-col gap-24">
-      <?php foreach ($page['case_studies'] as $cs): ?>
-        <div class="case-study-card">
-          <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 12px;">
-            <div>
-              <span class="case-badge">Verified Performance</span>
-              <h3 style="margin-bottom: 4px;"><?= e($cs['client']) ?></h3>
-              <p style="font-size: 14px; margin-bottom: 0; color: var(--color-text-muted);">
-                📍 <?= e($cs['district']) ?> · <strong>Industry:</strong> <?= e($cs['industry'] ?? 'B2B Growth') ?>
-              </p>
-            </div>
-            <div style="text-align: right;">
-              <div class="case-metric-highlight"><?= e($cs['metric_value']) ?></div>
-              <span style="font-size: 13px; font-weight: 600; color: var(--color-success);"><?= e($cs['metric_label']) ?></span>
-            </div>
+    <!-- 7 Algorithmic Mechanics -->
+    <h3 style="font-size: 24px; margin-top: 40px; margin-bottom: 20px;">
+      7 Critical Algorithmic Ranking & Performance Mechanics
+    </h3>
+    <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 24px;">
+      Search engines and paid ad bidding networks evaluate hundreds of technical signals. Here is how our engineering squad calibrates your <?= e($cityName) ?> digital architecture to outperform competitors:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 40px;">
+      <?php foreach (($definition['algorithmic_mechanics'] ?? []) as $mech): ?>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size: 16.5px; color: var(--color-text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--color-primary);">⚡</span> <?= e($mech['name']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($mech['desc']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 5. City Commercial Ecosystem & Micro-District Dynamics -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Local Market Intelligence</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Commercial District & Micro-Market Dynamics in <?= e($cityName) ?>
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      <?= e($cityName) ?> represents a dynamic commercial landscape with over <strong><?= e($page['city_data']['activeSMEs'] ?? '8,500+') ?> active registered businesses</strong> competing across key sectors like <?= implode(', ', $industries) ?>. Effective <?= strtolower(e($serviceName)) ?> must account for the distinct commercial characteristics of <?= e($cityName) ?>'s primary business hubs:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php 
+      $districtProfiles = get_district_profiles($districts, $cityName);
+      foreach ($districtProfiles as $dp): 
+      ?>
+        <div class="card" style="background: #ffffff; padding: 24px 26px; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+          <div class="flex justify-between items-center" style="margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h4 style="font-size: 17px; margin-bottom: 0; color: var(--color-text); font-weight: 700;">
+              📍 <?= e($dp['name']) ?>
+            </h4>
+            <span style="font-size: 11px; font-weight: 700; color: <?= e($dp['tag_color']) ?>; background: <?= e($dp['bg_color']) ?>; padding: 4px 10px; border-radius: var(--radius-pill);">
+              <?= e($dp['tag']) ?>
+            </span>
           </div>
-          <p style="margin-top: 18px; font-size: 15px; line-height: 1.65; color: var(--color-text);">
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+            <?= e($dp['summary']) ?>
+          </p>
+          <div style="background: var(--color-bg-alt); padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 12.5px; line-height: 1.5;">
+            <div style="margin-bottom: 4px;"><strong>Target Profile:</strong> <?= e($dp['demographics']) ?></div>
+            <div><strong>Execution Tactics:</strong> <?= e($dp['tactics']) ?></div>
+          </div>
+          <div style="font-size: 12.5px; color: var(--color-text-light); border-top: 1px solid var(--color-border-subtle); padding-top: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+            <span style="color: var(--color-text-light); font-weight: 600;">Core Channel:</span>
+            <span style="color: var(--color-primary); font-weight: 700;"><?= e($dp['focus']) ?></span>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <div class="card" style="padding: 24px 28px; background: #ffffff; border-left: 4px solid var(--color-secondary);">
+      <h4 style="font-size: 16px; margin-bottom: 6px;">Strategic Takeaway for <?= e($cityName) ?> Founders:</h4>
+      <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+        Attempting to rank nationally without first dominating your home territory in <?= e($cityName) ?> dilutes crawl budget and wastes advertising capital. Establishing dominance across <?= e($cityName) ?>'s key commercial districts creates a high-margin revenue foundation that fuels wider regional and pan-India expansion.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. High-Intent Keyword Matrix & Search Intent Distribution -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Search Intent Telemetry</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      High-Intent Keyword Clustering & Search Volume in <?= e($cityName) ?>
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Understanding how decision-makers in <?= e($cityName) ?> search for <?= strtolower(e($serviceName)) ?> solutions is fundamental to capturing high-value commercial pipeline. We categorize regional search queries across four distinct intent tiers:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['keyword_matrix'] as $cluster): ?>
+        <div class="card" style="padding: 24px;">
+          <div class="flex justify-between items-center" style="margin-bottom: 10px;">
+            <span class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: var(--radius-pill);">
+              <?= e($cluster['funnel_stage']) ?>
+            </span>
+            <span style="font-size: 12px; font-weight: 700; color: var(--color-success);">
+              Avg Conv: <?= e($cluster['conversion_rate']) ?>
+            </span>
+          </div>
+          <h4 style="font-size: 17px; margin-bottom: 8px; color: var(--color-text);">
+            <?= e($cluster['cluster']) ?>
+          </h4>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 12px;">
+            <strong>Intent Profile:</strong> <?= e($cluster['intent']) ?>
+          </p>
+          <ul style="list-style: none; font-size: 13px; color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+            <?php foreach ($cluster['queries'] as $q): ?>
+              <li style="display: flex; gap: 6px; align-items: center;">
+                <span style="color: var(--color-primary); font-weight: bold;">›</span>
+                <code><?= e($q) ?></code>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Lead Scoring Framework & Funnel Qualification -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Lead Quality Engineering</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Lead Scoring & Pipeline Qualification Architecture
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Marketing success is measured by closed revenue, not vanity form fills. We deploy a multi-dimensional lead scoring framework for your <?= e($cityName) ?> campaigns:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['lead_scoring_framework'] as $ls): ?>
+        <div class="card" style="background: #ffffff; padding: 24px;">
+          <h4 style="font-size: 17px; color: var(--color-primary); margin-bottom: 8px;">
+            🎯 <?= e($ls['pillar']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text); margin-bottom: 8px;">
+            <strong>Qualification Rules:</strong> <?= e($ls['criteria']) ?>
+          </p>
+          <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <strong>Sales Pipeline Impact:</strong> <?= e($ls['impact']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Omnichannel Customer Acquisition Flywheel -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Channel Integration</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      The Interconnected Full-Funnel Growth Flywheel
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Marketing channels should never operate in isolation. Here is how our engineering squads synchronize <?= strtolower(e($serviceName)) ?> across your entire digital customer acquisition flywheel:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['channel_flywheel'] as $cf): ?>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size: 17px; color: var(--color-primary); margin-bottom: 8px;">
+            🔄 <?= e($cf['channel']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($cf['role']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 12-Month Phased Growth Operating System -->
+<section class="section section-alt" id="roadmap">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-header">
+      <div class="section-tag">Execution Roadmap</div>
+      <h2>Our 12-Month <?= e($serviceName) ?> Growth Operating System</h2>
+      <p>A battle-tested, phased engineering sprint methodology designed for compounding revenue growth.</p>
+    </div>
+
+    <div class="roadmap-grid">
+      <?php foreach (($definition['phased_roadmap'] ?? []) as $step): ?>
+        <div class="roadmap-card">
+          <span class="roadmap-badge"><?= e($step['phase']) ?></span>
+          <h3 style="font-size: 19px; margin-bottom: 10px;"><?= e($step['title']) ?></h3>
+          <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 14px;">
+            <?= e($step['summary']) ?>
+          </p>
+          <div style="background: var(--color-bg-alt); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 12.5px; color: var(--color-text);">
+            <strong>Core Sprint Milestones:</strong> Verified technical health score > 95%, indexation validation, monthly ranking reports, and bi-weekly attribution reviews.
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 5-Vertical Industry Execution Playbooks -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Industry Specialization</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      How <?= e($serviceName) ?> Executes Across 5 Major <?= e($cityName) ?> Industries
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Generic marketing playbooks fail because different industries possess radically different customer purchase journeys, sales cycle lengths, and compliance requirements. Here is how our <?= e($cityName) ?> engineering squad adapts this discipline across five core sectors:
+    </p>
+
+    <div class="industry-playbook-grid">
+      <?php foreach (($definition['industry_playbooks'] ?? []) as $ind): ?>
+        <div class="industry-card-pro">
+          <div class="flex justify-between items-center" style="margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <h4 style="font-size: 18px; margin-bottom: 0; color: var(--color-text);">
+              🏢 <?= e($ind['industry']) ?>
+            </h4>
+            <span class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">
+              <?= e($ind['focus']) ?>
+            </span>
+          </div>
+          <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 12px;">
+            <strong>Tailored Strategic Execution:</strong> <?= e($ind['strategy']) ?>
+          </p>
+          <div style="font-size: 13px; color: var(--color-text); line-height: 1.6;">
+            <strong>Operational Value Proposition:</strong> By configuring industry-specific funnel paths and compliance checkpoints, your <?= e($cityName) ?> business establishes high authority, reduces sales cycle friction, and converts enterprise buyers at significantly higher rates.
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Forensic Technical Specifications & Scope of Work (SOW) -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Engineering Specifications</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Detailed Scope of Work (SOW) & Technical Deliverable Architecture
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Every sprint item is accompanied by a formal technical scope, specialized tooling stack, and executable client artifact:
+    </p>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <?php foreach ($deepModules['technical_specifications'] as $sow): ?>
+        <div class="card" style="background: #ffffff; padding: 24px 28px;">
+          <h4 style="font-size: 18px; color: var(--color-primary); margin-bottom: 6px;">
+            🔧 <?= e($sow['title']) ?>
+          </h4>
+          <p style="font-size: 14px; color: var(--color-text); font-weight: 600; margin-bottom: 8px;">
+            Objective: <span style="font-weight: normal; color: var(--color-text-muted);"><?= e($sow['objective']) ?></span>
+          </p>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Technical Scope:</strong> <?= e($sow['scope']) ?>
+          </p>
+          <div class="grid grid-2" style="gap: 12px; font-size: 12.5px; background: var(--color-bg-alt); padding: 12px 16px; border-radius: var(--radius-sm);">
+            <div><strong>Specialized Tooling:</strong> <?= e($sow['tools']) ?></div>
+            <div><strong>Delivered Artifact:</strong> <?= e($sow['artifact']) ?></div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 12. 90-Day Implementation Scorecard & Milestone Matrix -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Implementation Scorecard</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      90-Day Sprint Implementation Scorecard
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      We eliminate ambiguity through transparent, milestone-gated sprint deliverables:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['scorecard_milestones'] as $score): ?>
+        <div class="card" style="padding: 24px;">
+          <div class="badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 11.5px; font-weight: 700; padding: 4px 8px; border-radius: var(--radius-pill); margin-bottom: 8px;">
+            <?= e($score['timeline']) ?>
+          </div>
+          <h4 style="font-size: 17px; margin-bottom: 8px; color: var(--color-text);"><?= e($score['title']) ?></h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($score['deliverables']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 13. CRO & User Psychology Principles -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Behavioral Science</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Conversion Rate Optimization (CRO) & Psychological Triggers
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Driving traffic is futile if landing pages fail to persuade. We embed 5 core behavioral psychology principles into every page deployed in <?= e($cityName) ?>:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['cro_psychology_principles'] as $cro): ?>
+        <div class="card" style="background: #ffffff; padding: 24px;">
+          <h4 style="font-size: 16.5px; color: var(--color-text); margin-bottom: 8px;">
+            🧠 <?= e($cro['name']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($cro['desc']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 14. Multi-Touch Attribution & Telemetry Modeling -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Revenue Intelligence</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Multi-Touch Pipeline Attribution Modeling
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      We bridge the gap between marketing analytics and executive balance sheets through advanced multi-touch attribution:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['attribution_deep_dive'] as $att): ?>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size: 17px; color: var(--color-primary); margin-bottom: 8px;">
+            📊 <?= e($att['model']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text); margin-bottom: 10px;">
+            <strong>Telemetry Role:</strong> <?= e($att['role']) ?>
+          </p>
+          <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <strong>Executive Strategic Utility:</strong> <?= e($att['utility']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 15. Defensive Competitive Moats -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Market Leadership</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Building an Unassailable Digital Moat in <?= e($cityName) ?>
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Our engineering methodologies protect your market position and widen your competitive advantage over time:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['competitive_moat'] as $moat): ?>
+        <div class="card" style="background: #ffffff; padding: 24px;">
+          <h4 style="font-size: 17px; color: var(--color-text); margin-bottom: 8px;">
+            🛡️ <?= e($moat['pillar']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($moat['action']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 16. Regulatory Compliance & Ethics Manifesto -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Governance & Compliance</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Regulatory Compliance & Marketing Ethics Manifesto
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      We adhere to strict data security, regulatory, and white-hat quality standards across every client deployment:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['compliance_manifesto'] as $comp): ?>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size: 17px; color: var(--color-primary); margin-bottom: 8px;">
+            ⚖️ <?= e($comp['standard']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($comp['description']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 17. Industry Terms & KPI Glossary -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Executive Glossary</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Key Performance Indicators (KPI) & Terminology Guide
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Essential metrics and terminology monitored across all <?= e($cityName) ?> digital campaigns:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['kpi_glossary'] as $kpi): ?>
+        <div class="card" style="background: #ffffff; padding: 24px;">
+          <h4 style="font-size: 16.5px; color: var(--color-primary); margin-bottom: 6px;">
+            📖 <?= e($kpi['term']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($kpi['definition']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 18. Technical Infrastructure & Compliance Blueprint -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Infrastructure & Speed</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Server-Side Speed, Schema Graphs & Data Compliance Blueprint
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      High-performing digital marketing is intrinsically linked to underlying server and security architecture:
+    </p>
+
+    <?php if (!empty($definition['technical_blueprint'])): ?>
+      <div class="card" style="padding: 28px; background: #ffffff; border: 1px solid var(--color-border);">
+        <div class="grid grid-2" style="gap: 24px;">
+          <div>
+            <h5 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">Crawl Efficiency & Server Log Hygiene</h5>
+            <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;"><?= e($definition['technical_blueprint']['crawl_budget']) ?></p>
+          </div>
+          <div>
+            <h5 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">Semantic Schema Graph Architecture</h5>
+            <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;"><?= e($definition['technical_blueprint']['schema_graph']) ?></p>
+          </div>
+          <div>
+            <h5 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">Sub-Second Core Web Vitals Engineering</h5>
+            <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;"><?= e($definition['technical_blueprint']['core_web_vitals']) ?></p>
+          </div>
+          <div>
+            <h5 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">Security, Data Privacy & DPDP Compliance</h5>
+            <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;"><?= e($definition['technical_blueprint']['security_compliance']) ?></p>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
+  </div>
+</section>
+
+<!-- 19. Unit Economics, CAC:LTV ROI Modeling & Payback Period -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Financial Engineering</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Mathematical Unit Economics: CAC:LTV Modeling & Payback Velocity
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 24px;">
+      We calculate exact unit economics for your <?= e($cityName) ?> campaigns to ensure marketing functions as an accretive profit driver rather than an overhead cost center:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 28px;">
+      <div class="card" style="background: #ffffff; padding: 24px;">
+        <h4 style="font-size: 16px; color: var(--color-primary); margin-bottom: 8px;">📊 Blended CAC Formula</h4>
+        <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+          <code><?= e($deepModules['unit_economics']['blended_cac_formula']) ?></code>
+        </p>
+      </div>
+      <div class="card" style="background: #ffffff; padding: 24px;">
+        <h4 style="font-size: 16px; color: var(--color-primary); margin-bottom: 8px;">📈 Customer Lifetime Value (LTV)</h4>
+        <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+          <code><?= e($deepModules['unit_economics']['ltv_formula']) ?></code>
+        </p>
+      </div>
+      <div class="card" style="background: #ffffff; padding: 24px;">
+        <h4 style="font-size: 16px; color: var(--color-primary); margin-bottom: 8px;">⏱️ Payback Period Velocity</h4>
+        <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+          <code><?= e($deepModules['unit_economics']['payback_metric']) ?></code>
+        </p>
+      </div>
+      <div class="card" style="background: #ffffff; padding: 24px;">
+        <h4 style="font-size: 16px; color: var(--color-primary); margin-bottom: 8px;">🎯 Target Blended ROAS Benchmark</h4>
+        <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+          <code><?= e($deepModules['unit_economics']['roas_benchmark']) ?></code>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. Total Cost of Ownership (TCO) Comparison Matrix -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Financial & Operational Analysis</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Total Cost of Ownership (TCO): Agency Squad vs. In-House vs. Freelancers
+    </h2>
+    <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 24px;">
+      Building an in-house digital growth team in <?= e($cityName) ?> requires hiring 3–4 senior specialists, purchasing enterprise software subscriptions, and managing prolonged ramp-up periods. Here is a factual comparison of your strategic options:
+    </p>
+
+    <div class="tco-table-wrap">
+      <table class="tco-table">
+        <thead>
+          <tr>
+            <th>Evaluation Pillar</th>
+            <th style="color: var(--color-primary);">Convertiplyhq Squad</th>
+            <th>In-House Team (4 Hires)</th>
+            <th>Freelancer / Generalist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach (($definition['tco_comparison'] ?? []) as $row): ?>
+            <tr>
+              <td><strong><?= e($row['category']) ?></strong></td>
+              <td style="color: var(--color-primary); font-weight: 600; background: rgba(25, 76, 255, 0.02);"><?= e($row['convertiply']) ?></td>
+              <td><?= e($row['inhouse']) ?></td>
+              <td><?= e($row['freelancer']) ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 21. Why 70% of Local Campaigns Fail & The Engineering Fix -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag">Failure Mode Analysis</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Why 70% of Digital Marketing Campaigns Fail in <?= e($cityName) ?>
+    </h2>
+    <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Most business owners in <?= e($cityName) ?> have experienced frustrating agency partnerships where retainers were paid every month with zero measurable revenue return. These failures consistently stem from four fundamental mistakes:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach (($definition['failure_reasons'] ?? []) as $fail): ?>
+        <div class="failure-card">
+          <h4>⚠️ <?= e($fail['reason']) ?></h4>
+          <p><?= e($fail['desc']) ?></p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 22. Sprint Governance & Execution Methodology -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Governance & Transparency</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Sprint Cadence & Telemetry Reporting for <?= e($cityName) ?> Partners
+    </h2>
+    <p style="font-size: 15.5px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      We operate on transparent, agile 2-week sprint cycles with continuous asynchronous reporting:
+    </p>
+
+    <div class="grid grid-2" style="gap: 20px; margin-bottom: 32px;">
+      <?php foreach ($deepModules['governance_model'] as $gov): ?>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size: 16.5px; color: var(--color-primary); margin-bottom: 8px;">
+            📋 <?= e($gov['stage']) ?>
+          </h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">
+            <?= e($gov['desc']) ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 23. Quantified Client Case Studies -->
+<section class="section section-alt">
+  <div class="container" style="max-width: 960px;">
+    <div class="section-tag section-tag-secondary">Verified Evidence</div>
+    <h2 style="font-size: 30px; margin-bottom: 16px;">
+      Documented Performance Benchmarks in <?= e($cityName) ?>
+    </h2>
+    <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 28px;">
+      Review actual quantified results achieved for regional business models similar to yours in <?= e($cityName) ?>:
+    </p>
+
+    <div class="grid grid-2" style="gap: 24px;">
+      <?php foreach ($page['case_studies'] as $cs): ?>
+        <div class="card" style="background: #ffffff; padding: 28px;">
+          <div class="flex justify-between items-center" style="margin-bottom: 12px;">
+            <span class="badge" style="background: var(--color-bg-alt); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 12px;">
+              📍 <?= e($cs['district']) ?> Hub
+            </span>
+            <span style="font-size: 22px; font-weight: 800; color: var(--color-success);">
+              <?= e($cs['metric_value']) ?>
+            </span>
+          </div>
+          <h4 style="font-size: 18px; margin-bottom: 8px;"><?= e($cs['client']) ?></h4>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 14px;">
             "<?= e($cs['quote']) ?>"
           </p>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<!-- Section 6: Lead Capture Form (Embedded Shared Component) -->
-<section class="section section-alt">
-  <div class="container" style="max-width: 840px;">
-    <div class="card">
-      <div class="section-header" style="margin-bottom: 24px;">
-        <div class="section-tag">Direct Strategy Access</div>
-        <h2 style="font-size: 26px;">Get a Tailored <?= e($serviceName) ?> Plan for <?= e($cityName) ?></h2>
-        <p style="font-size: 14px;">Speak with our senior growth architects. Zero hard sell. 100% confidential analysis.</p>
-      </div>
-
-      <form action="<?= site_url('contact') ?>" method="POST" id="contactForm">
-        <input type="hidden" name="service" value="<?= e($page['service_slug']) ?>">
-        <input type="hidden" name="city" value="<?= e($page['city_slug']) ?>">
-
-        <div class="grid grid-2" style="gap: 16px;">
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name *</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Alex Morgan" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Work Email *</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="alex@company.com" required>
-          </div>
-        </div>
-
-        <div class="grid grid-2" style="gap: 16px;">
-          <div class="form-group">
-            <label class="form-label" for="phone">Phone / WhatsApp *</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 98765 43210" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="website">Company Website</label>
-            <input type="text" id="website" name="website" class="form-control" placeholder="yourcompany.com">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="message">What is your primary growth goal?</label>
-          <textarea id="message" name="message" class="form-control" placeholder="Tell us about your current challenges, target CAC, or timeline..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block" style="padding: 14px 32px; font-size: 16px;">
-          Claim Free Proposal for <?= e($cityName) ?> →
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Section 7: "What is {Service}?" (Static per service type) -->
-<section class="section">
-  <div class="container">
-    <div class="section-header text-left" style="max-width: 900px;">
-      <div class="section-tag">Educational Breakdown</div>
-      <h2>What is <?= e($page['service_full_name']) ?>?</h2>
-      <p style="font-size: 17px; line-height: 1.7; color: var(--color-text);">
-        <?= e($page['service_def']['what_is'] ?? "{$page['service_full_name']} is a systematic digital acquisition framework designed to drive measurable qualified revenue and market share.") ?>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Section 8: Ranking / Success Factors List (Static per service type) -->
-<?php if (!empty($page['service_def']['ranking_factors'])): ?>
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Core Principles</div>
-      <h2>Critical Success Factors for <?= e($serviceName) ?></h2>
-      <p>The technical and strategic pillars required to win in modern competitive search landscapes.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <?php foreach ($page['service_def']['ranking_factors'] as $idx => $factor): ?>
-        <div class="card card-sm">
-          <div style="font-size: 14px; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">
-            0<?= $idx + 1 ?>
-          </div>
-          <p style="font-size: 14px; margin-bottom: 0; color: var(--color-text); font-weight: 500;">
-            <?= e($factor) ?>
-          </p>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<!-- Section 9: Stats / Why-It-Matters Block (Static per service type) -->
-<?php if (!empty($page['service_def']['stats'])): ?>
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag section-tag-secondary">Data & Benchmarks</div>
-      <h2>Why <?= e($serviceName) ?> Matters by the Numbers</h2>
-      <p>Key industry benchmarks illustrating the impact of performance execution.</p>
-    </div>
-
-    <div class="grid grid-4">
-      <?php foreach ($page['service_def']['stats'] as $stat): ?>
-        <div class="card" style="text-align: center; padding: 28px 20px;">
-          <div style="font-size: 34px; font-weight: 800; color: var(--color-primary); margin-bottom: 6px;">
-            <?= e($stat['value']) ?>
-          </div>
-          <p style="font-size: 13px; margin-bottom: 0; color: var(--color-text-muted);">
-            <?= e($stat['label']) ?>
-          </p>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<!-- Section 10: Benefits List (Two-Column Bullet List, Static per service) -->
-<?php if (!empty($page['service_def']['benefits_column_1']) || !empty($page['service_def']['benefits_column_2'])): ?>
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Business Impact</div>
-      <h2>Direct Business Benefits of <?= e($serviceName) ?></h2>
-      <p>How this capability directly accelerates enterprise enterprise value and EBITDA.</p>
-    </div>
-
-    <div class="grid grid-2" style="gap: 32px;">
-      <div class="card">
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
-          <?php foreach ($page['service_def']['benefits_column_1'] as $ben): ?>
-            <li style="font-size: 15px; color: var(--color-text); display: flex; align-items: start; gap: 10px;">
-              <span style="color: var(--color-success); font-weight: bold; font-size: 16px; margin-top: 1px;">✓</span>
-              <span><?= e($ben) ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-
-      <div class="card">
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
-          <?php foreach ($page['service_def']['benefits_column_2'] as $ben): ?>
-            <li style="font-size: 15px; color: var(--color-text); display: flex; align-items: start; gap: 10px;">
-              <span style="color: var(--color-success); font-weight: bold; font-size: 16px; margin-top: 1px;">✓</span>
-              <span><?= e($ben) ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<!-- Section 11: Methodology / Tools Block (Static Site-Wide) -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Proven Methodology</div>
-      <h2>Our 4-Stage Growth Operating System</h2>
-      <p>A battle-tested engineering process designed for repeatable, compounding results.</p>
-    </div>
-
-    <div class="grid grid-4">
-      <div class="card deliverable-card">
-        <div class="deliverable-icon">01</div>
-        <h3>Forensic Audit</h3>
-        <p>Comprehensive telemetry, crawl budget, and funnel leak diagnosis.</p>
-      </div>
-      <div class="card deliverable-card">
-        <div class="deliverable-icon" style="background: var(--color-secondary-light); color: #92400e;">02</div>
-        <h3>Growth Architecture</h3>
-        <p>Custom keyword clusters, sub-second landing pages, and campaign structures.</p>
-      </div>
-      <div class="card deliverable-card">
-        <div class="deliverable-icon" style="background: var(--color-success-light); color: #065f46;">03</div>
-        <h3>Weekly Sprints</h3>
-        <p>Continuous creative testing, backlink outreach, and technical fixes.</p>
-      </div>
-      <div class="card deliverable-card">
-        <div class="deliverable-icon">04</div>
-        <h3>Revenue Scale</h3>
-        <p>Live BI dashboards reporting cost per SQL and closed revenue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 12: Deliverables Grid (Full Title + Description) -->
-<section class="section section-alt" id="deliverables-grid">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Complete Scope</div>
-      <h2>Everything Included in Our <?= e($serviceName) ?> Program</h2>
-      <p>Full-stack deliverables engineered for the <?= e($cityName) ?> commercial ecosystem.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <?php foreach ($page['deliverables'] as $del): ?>
-        <div class="card deliverable-card">
-          <div class="deliverable-icon">⚡</div>
-          <h3><?= e($del['title']) ?></h3>
-          <p><?= e($del['description']) ?></p>
-          <div style="font-size: 13px; font-weight: 600; color: var(--color-primary); margin-top: auto;">
-            Included in all engagements →
+          <div style="font-size: 12px; font-weight: 600; color: var(--color-text-light);">
+            Primary Metric Tracked: <?= e($cs['metric_label']) ?>
           </div>
         </div>
       <?php endforeach; ?>
@@ -452,128 +822,24 @@ require __DIR__ . '/../includes/header.php';
   </div>
 </section>
 
-<!-- Section 13: "How This Drives Results" (Narrative + Tips, Static per service) -->
+<!-- 24. 12-Question Localized FAQ Knowledge Base -->
 <section class="section">
-  <div class="container">
-    <div class="card" style="padding: 40px; background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-alt) 100%);">
-      <div class="section-tag">Outcome Engineering</div>
-      <h2>How <?= e($serviceName) ?> Drives Measurable Pipeline</h2>
-      <p style="font-size: 16px; line-height: 1.7; color: var(--color-text); margin-bottom: 24px;">
-        <?= e($page['service_def']['how_it_drives_results'] ?? "Our data-driven execution aligns keyword intent, sub-second UX, and closed-loop attribution to transform casual web traffic into qualified sales pipeline.") ?>
-      </p>
-
-      <?php if (!empty($page['service_def']['practical_tips'])): ?>
-        <h4 style="font-size: 16px; margin-bottom: 12px; color: var(--color-text);">Expert Execution Tips:</h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-          <?php foreach ($page['service_def']['practical_tips'] as $tip): ?>
-            <li style="font-size: 14px; color: var(--color-text-muted); display: flex; align-items: start; gap: 8px;">
-              <span style="color: var(--color-primary); font-weight: bold;">💡</span>
-              <span><?= e($tip) ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- Section 14: Why Choose Us (Static Site-Wide Differentiators) -->
-<section class="section section-alt">
-  <div class="container">
+  <div class="container" style="max-width: 960px;">
     <div class="section-header">
-      <div class="section-tag section-tag-secondary">The Convertiplyhq Standard</div>
-      <h2>Why Leaders Partner With Convertiplyhq</h2>
-      <p>We built our agency to eliminate the bloat, opacity, and excuses of legacy firms.</p>
+      <div class="section-tag">Knowledge Base</div>
+      <h2>Frequently Asked Questions: <?= e($serviceName) ?> in <?= e($cityName) ?></h2>
+      <p>Direct, transparent answers regarding investment, timelines, deliverables, and technical execution.</p>
     </div>
 
-    <div class="grid grid-4">
-      <div class="card card-sm">
-        <div class="deliverable-icon">📊</div>
-        <h4>Pricing Transparency</h4>
-        <p style="font-size: 13px;">Clear scopes with no hidden fees or multi-year lock-ins.</p>
-      </div>
-      <div class="card card-sm">
-        <div class="deliverable-icon" style="background: var(--color-success-light); color: #047857;">📈</div>
-        <h4>Real-Time Reporting</h4>
-        <p style="font-size: 13px;">Live GA4 & CRM revenue attribution dashboards 24/7.</p>
-      </div>
-      <div class="card card-sm">
-        <div class="deliverable-icon" style="background: var(--color-secondary-light); color: #92400e;">⚡</div>
-        <h4>Sub-Second Speed</h4>
-        <p style="font-size: 13px;">All pages engineered to score 95+ on Google Core Web Vitals.</p>
-      </div>
-      <div class="card card-sm">
-        <div class="deliverable-icon">👥</div>
-        <h4>Senior Squad Only</h4>
-        <p style="font-size: 13px;">Direct execution by veteran growth architects, not junior interns.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 15: "How to Choose the Right Agency" (Static Site-Wide) -->
-<section class="section">
-  <div class="container" style="max-width: 900px;">
-    <div class="section-header text-left">
-      <div class="section-tag">Buyer's Guide</div>
-      <h2>How to Choose the Right <?= e($serviceName) ?> Agency for <?= e($cityName) ?></h2>
-      <p>Before hiring any digital marketing firm in <?= e($cityName) ?>, ensure they meet these 4 essential criteria:</p>
-    </div>
-
-    <div class="flex flex-col gap-16">
-      <div class="card card-sm" style="display: flex; gap: 16px; align-items: start;">
-        <div style="font-size: 20px; font-weight: 800; color: var(--color-primary);">1.</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Demands Revenue & Pipeline KPIs (Not Just Impressions)</h4>
-          <p style="font-size: 14px; margin-bottom: 0;">Reject agencies that only report clicks, impressions, or traffic without connecting metrics to sales opportunities and ROI.</p>
-        </div>
-      </div>
-
-      <div class="card card-sm" style="display: flex; gap: 16px; align-items: start;">
-        <div style="font-size: 20px; font-weight: 800; color: var(--color-primary);">2.</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Provides Complete 100% Account Ownership</h4>
-          <p style="font-size: 14px; margin-bottom: 0;">Ensure you own all Google Ads accounts, tracking pixels, analytics containers, and creative assets directly.</p>
-        </div>
-      </div>
-
-      <div class="card card-sm" style="display: flex; gap: 16px; align-items: start;">
-        <div style="font-size: 20px; font-weight: 800; color: var(--color-primary);">3.</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Demonstrates Technical Rigor & Page Speed Mastery</h4>
-          <p style="font-size: 14px; margin-bottom: 0;">Slow landing pages waste ad budget and hurt organic search. Your agency must engineer sub-second page performance.</p>
-        </div>
-      </div>
-
-      <div class="card card-sm" style="display: flex; gap: 16px; align-items: start;">
-        <div style="font-size: 20px; font-weight: 800; color: var(--color-primary);">4.</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Operates in Agile Sprints Without 12-Month Lock-Ins</h4>
-          <p style="font-size: 14px; margin-bottom: 0;">Trust agencies that earn your partnership monthly through verifiable deliverables and sprint agility.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 16: FAQ (8-12 Questions with FAQPage Schema) -->
-<section class="section section-alt" id="faq-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Frequently Asked Questions</div>
-      <h2>FAQs: <?= e($serviceName) ?> in <?= e($cityName) ?></h2>
-      <p>Direct answers to questions regarding our <?= strtolower(e($serviceName)) ?> campaigns in <?= e($cityName) ?>.</p>
-    </div>
-
-    <div class="faq-list">
-      <?php foreach ($page['faqs'] as $index => $faq): ?>
-        <div class="faq-item <?= ($index === 0) ? 'active' : '' ?>">
-          <button class="faq-question" type="button" aria-expanded="<?= ($index === 0) ? 'true' : 'false' ?>">
+    <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 14px;">
+      <?php foreach ($page['faqs'] as $idx => $faq): ?>
+        <div class="card faq-item" style="padding: 20px 24px; cursor: pointer;">
+          <h3 class="faq-question" style="font-size: 16.5px; font-weight: 700; margin-bottom: 8px; color: var(--color-text); display: flex; justify-content: space-between; align-items: center;">
             <span><?= e($faq['question']) ?></span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p><?= e($faq['answer']) ?></p>
+            <span style="color: var(--color-primary); font-size: 18px;">+</span>
+          </h3>
+          <div class="faq-answer" style="font-size: 14.5px; color: var(--color-text-muted); line-height: 1.7;">
+            <?= e($faq['answer']) ?>
           </div>
         </div>
       <?php endforeach; ?>
@@ -581,30 +847,27 @@ require __DIR__ . '/../includes/header.php';
   </div>
 </section>
 
-<!-- Section 17: Closing CTA -->
-<section class="section">
+<!-- 25. Closing Consultation CTA -->
+<section class="section section-alt">
   <div class="container">
     <div class="cta-banner">
-      <h2>Ready to Dominate Your Market in <?= e($cityName) ?>?</h2>
+      <h2>Ready to Build a High-Performing Growth Engine in <?= e($cityName) ?>?</h2>
       <p>
-        Schedule your free 30-minute growth roadmap session today. We will audit your current <?= strtolower(e($serviceName)) ?> performance and show you the exact strategy to scale revenue in <?= e($cityName) ?>.
+        Schedule a confidential 30-minute growth diagnostic session with our senior architects. We will audit your current digital footprint and deliver a clear 90-day execution roadmap.
       </p>
       <div class="cta-banner-buttons">
-        <a href="<?= site_url('contact?service=' . urlencode($page['service_slug']) . '&city=' . urlencode($page['city_slug'])) ?>" class="btn btn-white">
-          Get My Free Proposal →
-        </a>
-        <a href="tel:<?= urlencode(SITE_PHONE) ?>" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-          📞 Call <?= e(SITE_PHONE) ?>
+        <a href="<?= site_url('contact') ?>" class="btn btn-white">
+          Claim Free <?= e($cityName) ?> Strategy Audit →
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 18: Related Pages / Internal Links Matrix -->
-<section class="section section-alt" style="padding-top: 40px; padding-bottom: 48px;">
+<!-- 26. Section 18: Related Growth Disciplines & Regional Hubs -->
+<section class="section" style="padding-top: 48px; border-top: 1px solid var(--color-border);">
   <div class="container">
-    <div class="grid grid-2" style="gap: 36px;">
+    <div class="grid grid-2" style="gap: 40px;">
       <div>
         <h3 style="font-size: 20px; margin-bottom: 8px;">Related Digital Services in <?= e($cityName) ?></h3>
         <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">Explore complementary growth channels for your <?= e($cityName) ?> business:</p>
@@ -631,7 +894,6 @@ require __DIR__ . '/../includes/header.php';
         <div class="flex flex-col gap-8">
           <?php 
           $allCities = get_all_cities();
-          $cCount = 0;
           
           // Prioritize cities in the same state first, then top metros
           $sameStateCities = array_filter($allCities, fn($c) => ($c['state'] ?? '') === $stateName && $c['slug'] !== $page['city_slug']);
@@ -654,7 +916,7 @@ require __DIR__ . '/../includes/header.php';
             </a>
           <?php endforeach; ?>
           
-          <a href="<?= site_url('services#city-matrix') ?>" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--color-primary); margin-top: 6px; padding: 4px 8px;">
+          <a href="<?= site_url('locations') ?>" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--color-primary); margin-top: 6px; padding: 4px 8px;">
             Explore All 500+ Indian Cities Matrix →
           </a>
         </div>

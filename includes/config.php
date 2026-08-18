@@ -211,14 +211,13 @@ function get_service_definition(string $serviceSlug): array {
     if (isset($defs[$serviceSlug])) {
         return $defs[$serviceSlug];
     }
-    // Fallback to closest match or default
-    if (str_contains($serviceSlug, 'seo') && isset($defs['seo'])) {
-        return $defs['seo'];
+    if (str_contains($serviceSlug, 'ecommerce') || str_contains($serviceSlug, 'shopify') || str_contains($serviceSlug, 'web-design')) {
+        return $defs['ecommerce'] ?? ($defs['seo'] ?? []);
     }
-    if ((str_contains($serviceSlug, 'ppc') || str_contains($serviceSlug, 'ads') || str_contains($serviceSlug, 'sem')) && isset($defs['google-ads-ppc'])) {
-        return $defs['google-ads-ppc'];
+    if (str_contains($serviceSlug, 'ppc') || str_contains($serviceSlug, 'ads') || str_contains($serviceSlug, 'sem')) {
+        return $defs['google-ads-ppc'] ?? ($defs['seo'] ?? []);
     }
-    return $defs['default'] ?? [];
+    return $defs['seo'] ?? [];
 }
 
 /**

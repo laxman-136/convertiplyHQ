@@ -1733,3 +1733,131 @@ textarea.form-control {
     gap: 14px;
   }
 }
+
+/* =========================================================
+   5,000+ Word Authoritative Editorial Components
+   ========================================================= */
+.editorial-lead-box {
+  background: #f8fafc;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 24px 28px;
+  margin: 28px 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmap-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd8ff;
+  box-shadow: var(--shadow-md);
+}
+
+.roadmap-badge {
+  display: inline-block;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+.industry-playbook-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.industry-card-pro {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.industry-card-pro:hover {
+  border-color: #cbd8ff;
+  box-shadow: var(--shadow-md);
+}
+
+.tco-table-wrap {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+  margin: 28px 0;
+}
+
+.tco-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.tco-table th {
+  background: #f8fafc;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tco-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+
+.tco-table tr:hover {
+  background: #f8faff;
+}
+
+.failure-card {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.failure-card h4 {
+  color: #92400e;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.failure-card p {
+  color: #78350f;
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
