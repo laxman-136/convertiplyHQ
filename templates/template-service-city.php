@@ -857,18 +857,40 @@ $deepModules = get_deep_content_modules($page['service_slug'], $page['city_slug'
       <p>Direct, transparent answers regarding investment, timelines, deliverables, and technical execution.</p>
     </div>
 
-    <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 14px;">
-      <?php foreach ($page['faqs'] as $idx => $faq): ?>
-        <div class="card faq-item" style="padding: 20px 24px; cursor: pointer;">
-          <h3 class="faq-question" style="font-size: 16.5px; font-weight: 700; margin-bottom: 8px; color: var(--color-text); display: flex; justify-content: space-between; align-items: center;">
-            <span><?= e($faq['question']) ?></span>
-            <span style="color: var(--color-primary); font-size: 18px;">+</span>
-          </h3>
-          <div class="faq-answer" style="font-size: 14.5px; color: var(--color-text-muted); line-height: 1.7;">
-            <?= e($faq['answer']) ?>
+    <div class="grid grid-2" style="gap: 16px; align-items: start;">
+      <div class="flex flex-col gap-12">
+        <?php 
+        $half = ceil(count($page['faqs']) / 2);
+        $leftFaqs = array_slice($page['faqs'], 0, $half);
+        $rightFaqs = array_slice($page['faqs'], $half);
+
+        foreach ($leftFaqs as $faq): 
+        ?>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span><?= e($faq['question']) ?></span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p><?= e($faq['answer']) ?></p>
+            </div>
           </div>
-        </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+      </div>
+
+      <div class="flex flex-col gap-12">
+        <?php foreach ($rightFaqs as $faq): ?>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span><?= e($faq['question']) ?></span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p><?= e($faq['answer']) ?></p>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
 </section>
